@@ -1,0 +1,309 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <ProduceReferenceAssemblyInOutDir>true</ProduceReferenceAssemblyInOutDir>
+    
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
+    <AndroidTargetSdkVersion>30</AndroidTargetSdkVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AndroidAotAdditionalArguments>aot=hybrid</AndroidAotAdditionalArguments>
+    <AotAssemblies>True</AotAssemblies>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <EnableLLVM>True</EnableLLVM>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resource\battery_0.png" />
+    <None Remove="Resource\battery_1.png" />
+    <None Remove="Resource\battery_2.png" />
+    <None Remove="Resource\battery_full.png" />
+    <None Remove="Resource\button_background.png" />
+    <None Remove="Resource\locate_tag.png" />
+    <None Remove="Resource\locate_tag_circle_48_to_36.png" />
+    <None Remove="Resource\locate_tag_circle_62_to_49.png" />
+    <None Remove="Resource\locate_tag_circle_74_to_63.png" />
+    <None Remove="Resource\locate_tag_circle_over_35.png" />
+    <None Remove="Resource\locate_tag_circle_under_75.png" />
+    <None Remove="Resource\locate_tag_radar_background.png" />
+    <None Remove="Resource\locate_tag_setting_radar.png" />
+    <None Remove="Resource\sort-down.png" />
+    <None Remove="Resource\sort-up.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resource\battery_0.png" />
+    <EmbeddedResource Include="Resource\battery_1.png" />
+    <EmbeddedResource Include="Resource\battery_2.png" />
+    <EmbeddedResource Include="Resource\battery_full.png" />
+    <EmbeddedResource Include="Resource\button_background.png" />
+    <EmbeddedResource Include="Resource\locate_tag.png" />
+    <EmbeddedResource Include="Resource\locate_tag_circle_48_to_36.png" />
+    <EmbeddedResource Include="Resource\locate_tag_circle_62_to_49.png" />
+    <EmbeddedResource Include="Resource\locate_tag_circle_74_to_63.png" />
+    <EmbeddedResource Include="Resource\locate_tag_circle_over_35.png" />
+    <EmbeddedResource Include="Resource\locate_tag_circle_under_75.png" />
+    <EmbeddedResource Include="Resource\locate_tag_radar_background.png" />
+    <EmbeddedResource Include="Resource\locate_tag_setting_radar.png" />
+    <EmbeddedResource Include="Resource\sort-down.png" />
+    <EmbeddedResource Include="Resource\sort-up.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="32.0.3" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="SimpleImageButton" Version="1.0.3" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="26.1.35" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="26.1.35" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="26.1.35" />
+    <PackageReference Include="Syncfusion.Xamarin.SfDataGrid" Version="26.1.35" />
+    <PackageReference Include="Syncfusion.Xamarin.SfMaskedEdit" Version="26.1.35" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="26.1.35" />
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="26.1.35" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.6" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2662" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\RMS_Pleasanter\PleasanterOperation\PleasanterOperation.csproj" />
+    <ProjectReference Include="..\..\..\RMS_Pleasanter\RMS_Pleasanter\RMS_Pleasanter.csproj" />
+    <ProjectReference Include="..\..\ReceivingManagementSystem.Common\ReceivingManagementSystem.Common.csproj" />
+    <ProjectReference Include="..\..\ReceivingManagementSystem.Wrapper\ReceivingManagementSystem.Wrapper.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DENSOScannerSDK">
+      <HintPath>..\..\Lib\DENSOScannerSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="DENSOScannerSDKAndroid">
+      <HintPath>..\..\Lib\DENSOScannerSDKAndroid.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v13.0\Mono.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="TecRfidSuite">
+      <HintPath>..\..\Lib\TecRfidSuite.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="App.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="AppResources.Designer.cs">
+      <DependentUpon>AppResources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="AppResources.ja.Designer.cs">
+      <DependentUpon>AppResources.ja.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Constants.Designer.cs">
+      <DependentUpon>Constants.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Controls\DateTimePicker.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="InventoryPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="LocateTagPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="LocateTagSettingPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="MainPage.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Preferences.Designer.cs">
+      <DependentUpon>Preferences.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Views\Custodies\CustodyConfirmationPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Custodies\CustodyPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Custodies\CustodySearchPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Custodies\CustodySearchResultPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Delivery\DeliveryInventorySearchPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Delivery\DeliveryInventorySearchResultPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Delivery\DeliveryPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Inventory\InputNumberInventoryPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Inventory\InventorySearchPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Inventory\InventorySearchResultPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Inventory\InventoryUpdateErrorPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Inventory\InventoryUpdateNormalPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Inventory\InventoryUpdateNotExistPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Inventory\ItemInventorySearchResultPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Inventory\ItemSearchInventoryPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Inventory\ItemSearchResultPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Inventory\SearchPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Inventory\SearchResultPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Inventory\SearchRfidPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Orders\CustomerSearchPopup.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Orders\CustomerSearchResultPopup.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Orders\OrderReceiptPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Orders\OrderReceiptPopup.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PalletRegistration\PalletRegistrationPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Receipt\ReceiptPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ReturnReception\ReturnReceptionConfirmPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ReturnReception\ReturnReceptionPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ReturnReception\ReturnReceptionSearchPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ReturnReception\ReturnReceptionSearchResultPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Return\ReturnConfirmPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Return\ReturnPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Settings\PleasanterSettingPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Settings\SendSettingPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Settings\SettingDevicePage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Settings\SettingPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Settings\SoundSettingPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Shipping\ShippingPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Warehousing\WarehousingConfirmationPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Warehousing\WarehousingPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Warehousing\WarehousingShelfNumberInputPage.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="AppResources.ja.resx">
+      <SubType>Designer</SubType>
+      <LastGenOutput>AppResources.ja.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="AppResources.resx">
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Constants.resx">
+      <SubType>Designer</SubType>
+      <LastGenOutput>Constants.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="InventoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LocateTagPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LocateTagSettingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Preferences.resx">
+      <LastGenOutput>Preferences.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ReceivingManagementSystem.Controls"
+             xmlns:ScannerSDKDemo_Util="clr-namespace:ReceivingManagementSystem.Util;assembly=ReceivingManagementSystem"
+             x:Class="ReceivingManagementSystem.InventoryPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ScannerSDKDemo_Util:StringToColorConverter x:Key="StringToColorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <StackLayout>
+                <!-- Header -->
+                <Label x:Name="button_navigate_up" Text="＜ TOP" TextColor="Blue" FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label x:Name="text_title_inventory" Text="Inventory"  HorizontalOptions="Start" FontSize="36" FontAttributes="Bold"/>
+
+                <!-- InventoryPage 中身 contents -->
+                <!-- 他の画面とのボタンサイズ合わせるために、ボタンの部分はHeight1.0*に固定、Height 総和 10.0*にすること。-->
+                <!-- In order to adjust the button size with other screens, the part of the button should be fixed at Height 1.0 * and the total Height 10.0*.-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="7.8*"></RowDefinition>
+                        <RowDefinition Height="0.1*"></RowDefinition>
+                        <RowDefinition Height="1.0*"></RowDefinition>    <!-- button -->
+                        <RowDefinition Height="0.1*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="1">
+                        <Label x:Name="text_total_tags_head"  Text="Total Tags" HorizontalOptions="Center" FontSize="28" FontAttributes="Bold"/>
+                        <Label x:Name="Text_Total_Tags_Value"  Text="0" HorizontalOptions="End" FontSize="28" FontAttributes="Bold"/>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <ListView x:Name="list_view" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" SeparatorColor="Black" HasUnevenRows="False" SizeChanged="list_view_SizeChanged" CachingStrategy="RecycleElement">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <ViewCell.View>
+                                            <StackLayout Orientation="Vertical" BackgroundColor="{Binding BackgroundColor, Converter={StaticResource StringToColorConverter}}" VerticalOptions="FillAndExpand">
+                                                <StackLayout VerticalOptions="CenterAndExpand">
+                                                    <Label Text="{Binding ShowText}" TextColor="{Binding ForegroundColor, Converter={StaticResource StringToColorConverter}}" BackgroundColor="Transparent" VerticalTextAlignment="Center"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </ViewCell.View>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+
+                    <Grid Grid.Row="4">
+                        <Button Text="Start" x:Name="button_switch" Clicked="button_switch_Clicked"  BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2" FontAttributes="Bold" />
+                    </Grid>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

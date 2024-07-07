@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ReceivingManagementSystem.Android.Controls"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ReceivingManagementSystem.Views.Android.Settings.SettingDevicePage"
+             Title="SP1-設定">
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackLayout Grid.Column="1">
+            <StackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.0*" />
+                        <ColumnDefinition Width="1.0*" />
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="0.5*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Column="1" Grid.Row="0">
+                        <Label x:Name="text_scanner_version_head" Text="Scanner Version"  FontSize="19" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="2" Grid.Row="0">
+                        <Label x:Name="text_scanner_version_value" Text="0.00"  FontSize="18"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="3" Grid.Row="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.0*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.1*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.1*"></RowDefinition>
+                                <RowDefinition Height="0.8*"></RowDefinition>
+                                <RowDefinition Height="0.1*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="1" Grid.Column="1">
+                                <Image x:Name="image_scanner_battery" Source="{Binding ImageSource}"></Image>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+            </StackLayout>
+            <ScrollView>
+                <StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Label x:Name="text_read_power_level_head" VerticalOptions="Center" HorizontalOptions="Start" Text="Read系出力" FontSize="18"></Label>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2">
+                            <Picker x:Name="text_read_power_level_value" VerticalOptions="Center">
+                            </Picker>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3">
+                            <Label x:Name="text_read_power_level_unit" Text="dBm" FontSize="18" VerticalOptions="Center"></Label>
+                        </Grid>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Label x:Name="text_session_head" HorizontalOptions="Start" Text="Session" FontSize="18" VerticalOptions="Center"></Label>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2">
+                            <Picker x:Name="text_session_value" VerticalOptions="Center">
+                            </Picker>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3">
+
+                        </Grid>
+                    </Grid>
+
+                    <Grid IsVisible="False">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Label x:Name="text_report_unique_tags_head"  HorizontalOptions="Start" Text="二度読み防止" FontSize="18" VerticalOptions="Center"></Label>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2">
+                            <Switch x:Name="checkbox_report_unique_tags" VerticalOptions="Center" HorizontalOptions="Center"></Switch>
+                        </Grid>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Label x:Name="text_channel_head" HorizontalOptions="Start" Text="Channel" FontSize="18" VerticalOptions="Center"></Label>
+                        </Grid>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"></RowDefinition>
+                                    <RowDefinition Height="50"></RowDefinition>
+                                    <RowDefinition Height="50"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="0.25*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Row="0" Grid.Column="0">
+                                    <Label x:Name="text_channel5" HorizontalOptions="Center" VerticalOptions="Center" Text="ch5"></Label>
+                                </Grid>
+                                <Grid Grid.Row="0" Grid.Column="1">
+                                    <Switch x:Name="checkbox_channel5" HorizontalOptions="Center"  VerticalOptions="Center"></Switch>
+                                </Grid>
+                                <Grid Grid.Row="0" Grid.Column="3">
+                                    <Label x:Name="text_channel11" HorizontalOptions="Center" VerticalOptions="Center" Text="ch11"></Label>
+                                </Grid>
+                                <Grid Grid.Row="0" Grid.Column="4">
+                                    <Switch x:Name="checkbox_channel11"  HorizontalOptions="Center"  VerticalOptions="Center"></Switch>
+                                </Grid>
+
+                                <Grid Grid.Row="1" Grid.Column="0">
+                                    <Label x:Name="text_channel17" HorizontalOptions="Center" VerticalOptions="Center" Text="ch17"></Label>
+                                </Grid>
+                                <Grid Grid.Row="1" Grid.Column="1">
+                                    <Switch x:Name="checkbox_channel17" HorizontalOptions="Center"  VerticalOptions="Center"></Switch>
+                                </Grid>
+                                <Grid Grid.Row="1" Grid.Column="3">
+                                    <Label x:Name="text_channel23" HorizontalOptions="Center" VerticalOptions="Center" Text="ch23"></Label>
+                                </Grid>
+                                <Grid Grid.Row="1" Grid.Column="4">
+                                    <Switch x:Name="checkbox_channel23" HorizontalOptions="Center"  VerticalOptions="Center"></Switch>
+                                </Grid>
+
+                                <Grid Grid.Row="2" Grid.Column="0">
+                                    <Label x:Name="text_channel24" HorizontalOptions="Center" VerticalOptions="Center" Text="ch24"></Label>
+                                </Grid>
+                                <Grid Grid.Row="2" Grid.Column="1">
+                                    <Switch x:Name="checkbox_channel24" HorizontalOptions="Center"  VerticalOptions="Center"></Switch>
+                                </Grid>
+                                <Grid Grid.Row="2" Grid.Column="3">
+                                    <Label x:Name="text_channel25" HorizontalOptions="Center" VerticalOptions="Center" Text="ch25"></Label>
+                                </Grid>
+                                <Grid Grid.Row="2" Grid.Column="4">
+                                    <Switch x:Name="checkbox_channel25" HorizontalOptions="Center"  VerticalOptions="Center"></Switch>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Label x:Name="text_q_factor_head" HorizontalOptions="Start" Text="Q値" FontSize="18" VerticalOptions="Center"></Label>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2">
+                            <Picker x:Name="text_q_factor_value" VerticalOptions="Center">
+                            </Picker>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3">
+
+                        </Grid>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Label x:Name="text_auto_link_profile_head" HorizontalOptions="Start" Text="Auto Link Profile" FontSize="18" VerticalOptions="Center"></Label>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2">
+                            <Switch x:Name="switch_auto_link_profile" VerticalOptions="Center" HorizontalOptions="Center"></Switch>
+                        </Grid>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Label x:Name="text_link_profile_head" HorizontalOptions="Start" Text="Link Profile" FontSize="18" VerticalOptions="Center"></Label>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2">
+                            <Picker x:Name="text_link_profile_value" VerticalOptions="Center">
+                            </Picker>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3">
+
+                        </Grid>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Label x:Name="text_polarization_head" HorizontalOptions="Start" Text="Polarization" FontSize="18" VerticalOptions="Center"></Label>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2">
+                            <Picker x:Name="text_polarization_value" VerticalOptions="Center">
+                            </Picker>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3">
+
+                        </Grid>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Label x:Name="text_power_save_head" HorizontalOptions="Start" Text="RFID省電力設定" FontSize="18" VerticalOptions="Center"></Label>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2">
+                            <Switch x:Name="checkbox_power_save" VerticalOptions="Center" HorizontalOptions="Center"></Switch>
+                        </Grid>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Label x:Name="text_buzzer_head"  HorizontalOptions="Start" Text="ブザー鳴動 ON/OFF" FontSize="18" VerticalOptions="Center"></Label>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2">
+                            <Switch x:Name="checkbox_buzzer" VerticalOptions="Center" HorizontalOptions="Center"></Switch>
+                        </Grid>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Label x:Name="text_buzzer_volume_head" HorizontalOptions="Start" Text="ブザー音量" FontSize="18" VerticalOptions="Center"></Label>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2">
+                            <Picker x:Name="text_buzzer_volume_value" VerticalOptions="Center">
+                            </Picker>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="3">
+
+                        </Grid>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Label x:Name="text_barcode_head" HorizontalOptions="Start" Text="BARCODE" FontSize="18" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                        </Grid>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Label x:Name="text_trigger_mode_head" Text="トリガーモード" FontSize="18" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2">
+                            <Picker x:Name="text_trigger_mode_value" VerticalOptions="Center" HorizontalOptions="Fill">
+                            </Picker>
+                        </Grid>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Label x:Name="text_enable_all_1d_codes_head"  HorizontalOptions="Start" Text="1次元コード読取許可" FontSize="18" VerticalOptions="Center"></Label>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2">
+                            <Switch x:Name="checkbox_enable_all_1d_codes" VerticalOptions="Center" HorizontalOptions="Center"></Switch>
+                        </Grid>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.0*"></ColumnDefinition>
+                            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Grid.Column="1">
+                            <Label x:Name="text_enable_all_2d_codes_head"  HorizontalOptions="Start" Text="2次元コード読取許可" FontSize="18" VerticalOptions="Center"></Label>
+                        </Grid>
+                        <Grid Grid.Row="0" Grid.Column="2">
+                            <Switch x:Name="checkbox_enable_all_2d_codes" VerticalOptions="Center" HorizontalOptions="Center"></Switch>
+                        </Grid>
+                    </Grid>
+
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout HorizontalOptions="End" Orientation="Horizontal">
+                <Button x:Name="btnSave" Grid.Row="2" Grid.Column="2" Text="OK" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                        FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" VerticalOptions="Center" HorizontalOptions="Start"
+                        Clicked="btnSave_Clicked"></Button>
+
+                <Button x:Name="btnCancel" Grid.Row="2" Grid.Column="2"  Text="キャンセル" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                        FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" VerticalOptions="Center" HorizontalOptions="Start"
+                        Clicked="btnCancel_Clicked"></Button>
+
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

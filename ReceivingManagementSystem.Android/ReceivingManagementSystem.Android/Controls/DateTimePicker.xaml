@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceivingManagementSystem.Android.Controls.DateTimePicker"
+             xmlns:datePicker="clr-namespace:Syncfusion.XForms.Pickers;assembly=Syncfusion.SfPicker.XForms"
+             >
+    <ContentView.Content>
+        <Grid>
+            <datePicker:SfDatePicker 
+                                         ShowFooter="True" 
+                                         PickerWidth="300"
+                                         SelectedItemFontSize="20"
+                                         UnselectedItemFontSize="20"
+                                         ColumnHeaderHeight="40" 
+                                                  WidthRequest="100" HeightRequest="50"
+                                         Date="{Binding SelectDate, Mode=TwoWay}"
+                                         IsOpen="{Binding IsPickerOpen, Mode=TwoWay}"
+                                         PickerMode="Dialog"/>
+            
+            <StackLayout Orientation="Horizontal">
+
+                <Entry></Entry>
+                <ImageButton HorizontalOptions="End" VerticalOptions="Center"  WidthRequest="50" 
+                             Source="Assets/calendar.png" Command="{Binding OpenPickerCommand}"></ImageButton>
+            </StackLayout>
+        </Grid>
+
+    </ContentView.Content>
+</ContentView>

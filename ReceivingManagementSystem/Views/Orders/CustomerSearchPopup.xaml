@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xctViews:Popup xmlns="http://xamarin.com/schemas/2014/forms"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+           xmlns:local="clr-namespace:ReceivingManagementSystem.Popup"
+           xmlns:xctViews="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+           Size="500, 530"
+           x:Class="ReceivingManagementSystem.Orders.CustomerSearchPopup"
+           x:TypeArguments="x:object" Opacity="1" Color="#E9E9E9" IsLightDismissEnabled="False" >
+
+    <xctViews:Popup.Resources>
+        <ResourceDictionary>
+            <Style x:Key="Title" TargetType="Label">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#000" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="Divider" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="1" />
+                <Setter Property="Margin" Value="50, 25" />
+                <Setter Property="Color" Value="White" />
+            </Style>
+            <Style x:Key="Content" TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="PopupLayout" TargetType="StackLayout">
+                <Setter Property="Padding" Value="{OnPlatform Android=20, UWP=20, iOS=5}" />
+            </Style>
+            <Style x:Key="ConfirmButton" TargetType="Button">
+                <Setter Property="VerticalOptions" Value="EndAndExpand" />
+                <Setter Property="BackgroundColor" Value="#9FBFBE"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </xctViews:Popup.Resources>
+
+    <StackLayout Padding="15">
+        <Label Style="{StaticResource Title}" 
+                Text="預り業務-得意先検索" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="400"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="1" Padding="0, 20,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Text="得意先コード" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="0" Grid.Column="1" Text="{Binding CustomerSearch.CustomerCode}"></Entry>
+
+                    <Label Grid.Row="1" Text="会社名" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="1" Grid.Column="1" Text="{Binding CustomerSearch.CompanyName}"></Entry>
+
+                    <StackLayout Grid.Row="2" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="氏名"></Label>
+                    </StackLayout>
+                    <Entry Grid.Row="2" Grid.Column="1" Text="{Binding CustomerSearch.CustomerName}"></Entry>
+
+                    <StackLayout Grid.Row="3" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="郵便番号"></Label>
+                    </StackLayout>
+                    <Entry Grid.Row="3" Grid.Column="1" Text="{Binding CustomerSearch.PostCode}"></Entry>
+
+                    <StackLayout Grid.Row="4" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="住所"></Label>
+                    </StackLayout>
+                    <Entry Grid.Row="4" Grid.Column="1" Text="{Binding CustomerSearch.Address}"></Entry>
+
+                    <StackLayout Grid.Row="5" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="電話番号"></Label>
+                    </StackLayout>
+                    <Entry Grid.Row="5" Grid.Column="1" Text="{Binding CustomerSearch.TelephoneNumber}"></Entry>
+
+                    <StackLayout Grid.Row="6" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="メールアドレス"></Label>
+                    </StackLayout>
+                    <Entry Grid.Row="6" Grid.Column="1" Text="{Binding CustomerSearch.MailAddress}"></Entry>
+
+
+                    <StackLayout Grid.Row="7" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button x:Name="btnSearch" Grid.Column="1" Text="検索" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Clicked="btnSearch_Clicked">
+                        </Button>
+                        <Button x:Name="btnCancel"  Grid.Column="1" Text="キャンセル" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Clicked="btnCancel_Clicked">
+                        </Button>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+</xctViews:Popup>

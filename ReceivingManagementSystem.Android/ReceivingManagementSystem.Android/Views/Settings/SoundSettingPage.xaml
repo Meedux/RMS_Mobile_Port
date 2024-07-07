@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceivingManagementSystem.Views.Android.Settings.SoundSettingPage"
+              Title="RFID発見音設定">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <StackLayout Grid.Column="1" Padding="0, 20,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Row="0" Text="音1" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding ChooseFileCommand}" CommandParameter="1">
+                    </Button>
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding SoundSetting.Track1}" VerticalOptions="Center"></Label>
+
+                    <Button Grid.Row="1" Text="音2" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding ChooseFileCommand}" CommandParameter="2">
+                    </Button>
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding SoundSetting.Track2}" VerticalOptions="Center"></Label>
+
+                    <Button Grid.Row="2" Text="音3" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding ChooseFileCommand}" CommandParameter="3">
+                    </Button>
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding SoundSetting.Track3}" VerticalOptions="Center"></Label>
+
+                    <Button Grid.Row="3" Text="音4" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding ChooseFileCommand}" CommandParameter="4">
+                    </Button>
+                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding SoundSetting.Track4}" VerticalOptions="Center"></Label>
+
+                    <Button Grid.Row="4" Text="音5" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding ChooseFileCommand}" CommandParameter="5">
+                    </Button>
+                    <Label Grid.Row="4" Grid.Column="1" Text="{Binding SoundSetting.Track5}" VerticalOptions="Center"></Label>
+
+
+                    <StackLayout Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="End">
+                        <Button Grid.Column="1" Text="OK" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding OkCommand}">
+                        </Button>
+                        <Button Grid.Column="2" Text="キャンセル" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding CloseCommand}">
+                        </Button>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

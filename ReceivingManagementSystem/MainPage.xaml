@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:receivingmanagementsystem="clr-namespace:ReceivingManagementSystem"
+             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+             x:Class="ReceivingManagementSystem.MainPage"
+             Title="{Binding TitleMain}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary" x:Name="tbiSetting"
+                     Text="設定"
+                     Priority="0" Clicked="tbiSetting_Clicked"
+                     IconImageSource="Assets/settings.png"/>
+        <ToolbarItem Order="Primary"
+                     Text="バージョン情報"
+                     Priority="1" x:Name="tbiAbout"
+                     IconImageSource="Assets/about.png" Clicked="tbiAbout_Clicked"/>
+        <!--<ToolbarItem Order="Secondary"
+                     Text="Ver"
+                     Priority="2" x:Name="tbiVersion"/>-->
+        <ToolbarItem Order="Secondary"
+                     Text="終了"
+                     Priority="3" x:Name="tbiExist"
+                     Clicked="tbiExist_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <!-- ボタン button -->
+    <Grid Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="800"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <tabView:SfTabView Grid.Row="0" Grid.Column="1" VisibleHeaderCount="2" TabHeaderBackgroundColor="#BEBEBE" SelectionChanged="SfTabView_SelectionChanged">
+            <tabView:SfTabItem Title="預り" TitleFontAttributes="Bold" TitleFontSize="24">
+                <tabView:SfTabItem.Content>
+                    <Grid Padding="0,20,0,0" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="50" ></RowDefinition>
+                            <RowDefinition Height="50" ></RowDefinition>
+                            <RowDefinition Height="50" ></RowDefinition>
+                            <RowDefinition Height="50" ></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Text="預り" FontAttributes="Bold" FontSize="18"></Label>
+                        <Line  Grid.Row="0" X1="0" Y1="0" X2="100" Y2="0" Stroke="Blue" HorizontalOptions="Start" StrokeThickness="1" Margin="0,30,0,0"></Line>
+
+
+                        <Button Grid.Row="1" x:Name="btnOrder" Text="受注" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2" 
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="Start" Clicked="btnOrder_Clicked">
+                        </Button>
+                        <Button Grid.Row="2" x:Name="btnReceiving" Text="預り" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" VerticalOptions="Center" HorizontalOptions="Start"
+                                Clicked="btnReceiving_Clicked"></Button>
+                        <Button Grid.Row="3" x:Name="btnWarehousing" Text="入庫" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" VerticalOptions="Center" HorizontalOptions="Start"
+                                Clicked="btnWarehousing_Clicked"></Button>
+
+                        <Label Grid.Row="0" Grid.Column="1" Text="返却" FontAttributes="Bold" FontSize="18"></Label>
+                        <Line  Grid.Row="0" Grid.Column="1" X1="0" Y1="0" X2="100" Y2="0" Stroke="Blue" HorizontalOptions="Start" StrokeThickness="1" Margin="0,30,0,0"></Line>
+
+                        <Button Grid.Row="1" Grid.Column="1" x:Name="btnReturnReception" Text="受付" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" VerticalOptions="Center" HorizontalOptions="Start"
+                                Clicked="btnReturnReception_Clicked"></Button>
+                        <Button Grid.Row="2" Grid.Column="1" x:Name="btnDelivery" Text="出庫" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" VerticalOptions="Center" HorizontalOptions="Start"
+                                Clicked="btnDelivery_Clicked"></Button>
+                        <Button Grid.Row="3" Grid.Column="1" x:Name="btnReturn" Text="返却" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" VerticalOptions="Center" HorizontalOptions="Start"
+                                Clicked="btnReturn_Clicked"></Button>
+
+                        <Button Grid.Row="1" Grid.Column="2" x:Name="btnInventory" Text="棚卸" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" VerticalOptions="Center" HorizontalOptions="Start"
+                                Clicked="btnInventory_Clicked" IsEnabled="{Binding IsSettingRFID}"></Button>
+                        <Button Grid.Row="2" Grid.Column="2" x:Name="btnSearch" Text="検索" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" VerticalOptions="Center" HorizontalOptions="Start"
+                                Clicked="btnSearch_Clicked" IsEnabled="{Binding IsSettingRFID}"></Button>
+
+                    </Grid>
+
+                </tabView:SfTabItem.Content>
+            </tabView:SfTabItem>
+            <tabView:SfTabItem Title="商品" TitleFontAttributes="Bold" TitleFontSize="24">
+                <tabView:SfTabItem.Content>
+                    <Grid Padding="0,20,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"></RowDefinition>
+                            <RowDefinition Height="50" ></RowDefinition>
+                            <RowDefinition Height="50" ></RowDefinition>
+                            <RowDefinition Height="50" ></RowDefinition>
+                            <RowDefinition Height="50" ></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Row="1" x:Name="btnPalletRegistration" Text="パレット登録" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2" 
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="Start" Clicked="btnPalletRegistration_Clicked">
+                        </Button>
+                        <Button Grid.Row="2" x:Name="btnReceipt" Text="入荷" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" VerticalOptions="Center" HorizontalOptions="Start"
+                                Clicked="btnReceipt_Clicked"></Button>
+                        <Button Grid.Row="3" x:Name="btnShipping" Text="出荷" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" VerticalOptions="Center" HorizontalOptions="Start"
+                                Clicked="btnShipping_Clicked"></Button>
+
+                        <Button Grid.Row="1" Grid.Column="2" x:Name="btnProductInventory" Text="棚卸" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" VerticalOptions="Center" HorizontalOptions="Start"
+                                Clicked="btnProductInventory_Clicked" IsEnabled="{Binding IsSettingRFID}"></Button>
+                        <Button Grid.Row="2" Grid.Column="2" x:Name="btnProductSearch" Text="検索" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" VerticalOptions="Center" HorizontalOptions="Start"
+                                Clicked="btnProductSearch_Clicked" IsEnabled="{Binding IsSettingRFID}"></Button>
+                    </Grid>
+                </tabView:SfTabItem.Content>
+            </tabView:SfTabItem>
+
+        </tabView:SfTabView>
+
+
+
+        <!--<Grid Grid.Row="2" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Button x:Name="button_locate_tag" 
+                                    BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2" FontAttributes="Bold" FontSize="22"
+                                    Clicked="Locate_Tag_Tapped"></Button>
+        </Grid>-->
+
+        <!-- Communication state -->
+        <!--
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Label x:Name="connection_status" Text="接続待ち・・・" VerticalOptions="Start" HorizontalOptions="Start"  Margin="10, 10" FontSize="18"/>
+        </Grid>-->
+
+    </Grid>
+</ContentPage>

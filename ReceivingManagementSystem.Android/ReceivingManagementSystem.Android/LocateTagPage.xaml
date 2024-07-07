@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ReceivingManagementSystem.Android.LocateTagPage"
+             Title="LocateTag">
+
+    <Grid Margin="10">
+        <StackLayout>
+            <StackLayout>
+                <Grid HeightRequest="75">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid>
+                            <Label x:Name="text_title_locate_tag" Text="LocateTag" HorizontalOptions="Start" VerticalOptions="Center" FontSize="34" FontAttributes="Bold"/>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="9*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="1">
+                            <Button x:Name="button_setting" Text="Setting" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2" FontAttributes="Bold" Clicked="button_setting_Clicked"></Button>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </StackLayout>
+
+            <!-- LocateTag 中身 contents -->
+            <!-- 他の画面とのボタンサイズ合わせるために、ボタンの部分はHeight1.0*に固定、Height 総和 10.0*にすること。-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="5.8*"></RowDefinition>
+                    <RowDefinition Height="0.1*"></RowDefinition>
+                    <RowDefinition Height="1.0*"></RowDefinition>
+                    <!-- button -->
+                    <RowDefinition Height="0.1*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="1">
+                                    <Picker x:Name="spinner_power_level_value_on_read_search_tag" SelectedIndexChanged="spinner_power_level_value_on_read_search_tag_SelectedIndexChanged"></Picker>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                <ColumnDefinition Width="9*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="1">
+                                <Button x:Name="button_read_search_tag" Text="Read" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2" FontAttributes="Bold" Clicked="button_read_search_tag_Clicked"></Button>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="9*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Label x:Name="text_search_tag_uii_head" Text="UII" FontSize="24" TextColor="#6278FF" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <Editor x:Name="text_search_tag_uii_value" Completed="text_search_tag_uii_value_Completed"></Editor>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Picker x:Name="picker_match_direction" SelectedIndexChanged="Picker_match_direction_SelectedIndexChanged">
+                        </Picker>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="4">
+                    <Image x:Name="image_search_radar" Source="{Binding ImageSource}"></Image>
+                    <Image x:Name="image_search_circle" Source="{Binding ImageSource}" IsVisible="False"></Image>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="End">
+                        <Label x:Name="text_read_power_value_on_search" Text="0.0" TextColor="#6278FF" ></Label>
+                        <Label x:Name="text_read_power_unit_on_search" Text="dBm" TextColor="#6278FF"></Label>
+                    </StackLayout>
+                </Grid>
+
+                <Grid Grid.Row="6">
+                    <Button x:Name="button_search_tag_toggle" Text="Search" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2" FontAttributes="Bold" Clicked="button_search_tag_toggle_Clicked"></Button>
+                </Grid>
+
+            </Grid>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

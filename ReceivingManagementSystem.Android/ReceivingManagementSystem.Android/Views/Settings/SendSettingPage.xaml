@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceivingManagementSystem.Views.Android.Settings.SendSettingPage"
+             Title="送信設定">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Column="1" Padding="0, 20,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Text="ユーザ名" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="0" Grid.Column="1" Text="{Binding SendSetting.UserName}"></Entry>
+
+                    <Label Grid.Row="1" Text="パスワード" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="1" Grid.Column="1" Text="{Binding SendSetting.Password}" IsPassword="True"></Entry>
+
+                    <Label Grid.Row="2" Text="サーバー" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="2" Grid.Column="1" Text="{Binding SendSetting.Server}"></Entry>
+
+                    <Label Grid.Row="3" Text="ポート" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="3" Grid.Column="1" Text="{Binding SendSetting.Port}"></Entry>
+
+                    <Label Grid.Row="4" Text="暗号方法" VerticalOptions="Center"></Label>
+                    <Picker Grid.Row="4" Grid.Column="1" ItemsSource="{Binding EncryptionMethods}" ItemDisplayBinding="{Binding DisplayValue}" 
+                            SelectedItem="{Binding EncryptionMethodSelected}"/>
+
+                    <StackLayout Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="Start">
+                        <CheckBox IsChecked="{Binding SendSetting.RequiresAuthentication}"></CheckBox>
+                        <Label Text="送信サーバには認証が必要です" VerticalOptions="Center"></Label>
+                    </StackLayout>
+
+                    <Label Grid.Row="6" Text="にメールする" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="6" Grid.Column="1" Text="{Binding SendSetting.MailTo}"></Entry>
+
+                    <StackLayout Grid.Row="7" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="End">
+                        <Button Grid.Column="1" Text="OK" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding OkCommand}">
+                        </Button>
+                        <Button Grid.Column="2" Text="キャンセル" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding CloseCommand}">
+                        </Button>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

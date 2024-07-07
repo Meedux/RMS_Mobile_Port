@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceivingManagementSystem.Views.Android.Settings.PleasanterSettingPage"
+             Title="設定ープリザンター">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="1" Padding="0, 20,0,0">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Text="プリザンターURL" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="0" Grid.Column="1" Text="{Binding PlesanterSetting.Url}"></Entry>
+
+                    <Label Grid.Row="1" Text="APIキー" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="1" Grid.Column="1" Text="{Binding PlesanterSetting.ApiKey}"></Entry>
+
+                    <!--<Label Grid.Row="2" Text="サイトID" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="2" Grid.Column="1" Text="{Binding PlesanterSetting.SiteId}"></Entry>-->
+
+                </Grid>
+
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.ColumnSpan="6" Text="サイトID" FontAttributes="Bold" FontSize="18"></Label>
+                    <Line  Grid.Row="0" Grid.ColumnSpan="6" X1="0" Y1="0" X2="300" Y2="0" Stroke="Blue" HorizontalOptions="Start" StrokeThickness="1" Margin="0,30,0,0"></Line>
+
+                    <Label Grid.Row="1" Text="預り" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="1" Grid.Column="1" Text="{Binding PlesanterSetting.Custody}"></Entry>
+
+                    <Label Grid.Row="1" Grid.Column="2" Text="預り明細" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="1" Grid.Column="3" Text="{Binding PlesanterSetting.CustodyDetail}"></Entry>
+
+                    <Label Grid.Row="1" Grid.Column="4" Text="得意先" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="1" Grid.Column="5" Text="{Binding PlesanterSetting.Customer}"></Entry>
+
+                    <Label Grid.Row="2" Text="棚番号" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="2" Grid.Column="1" Text="{Binding PlesanterSetting.ShelfNumber}"></Entry>
+
+                    <Label Grid.Row="2" Grid.Column="2" Text="内容" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="2" Grid.Column="3" Text="{Binding PlesanterSetting.Content}"></Entry>
+
+
+                    <Label Grid.Row="3" Text="商品マスタ" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="3" Grid.Column="1" Text="{Binding PlesanterSetting.ItemMaster}"></Entry>
+
+                    <Label Grid.Row="3" Grid.Column="2" Text="パレットマスタ" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="3" Grid.Column="3" Text="{Binding PlesanterSetting.PalletMaster}"></Entry>
+
+                    <Label Grid.Row="3" Grid.Column="4" Text="定期便マスタ" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="3" Grid.Column="5" Text="{Binding PlesanterSetting.SubscServiceMaster}"></Entry>
+                    
+                    <Label Grid.Row="4" Text="入出荷" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="4" Grid.Column="1" Text="{Binding PlesanterSetting.ReceivingAndShipping}"></Entry>
+
+                    <Label Grid.Row="4"  Grid.Column="2" Text="商品在庫" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="4" Grid.Column="3" Text="{Binding PlesanterSetting.ItemInventory}"></Entry>
+
+                    <Label Grid.Row="4" Grid.Column="4" Text="棚卸" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="4" Grid.Column="5" Text="{Binding PlesanterSetting.ItemInventoryCount}"></Entry>
+                </Grid>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                    <Button Grid.Column="1" Text="OK" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding OkCommand}">
+                    </Button>
+                    <Button Grid.Column="2" Text="キャンセル" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding CloseCommand}">
+                    </Button>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

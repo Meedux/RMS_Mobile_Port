@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceivingManagementSystem.Custodies.CustodyPage"
+             Title="預り業務-預り">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="800"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="1" Padding="0, 20,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Text="会社名" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="0" Grid.Column="1" Text="{Binding CustodyInfo.CompanyName}" IsEnabled="False"></Entry>
+
+                    <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="氏名"></Label>
+                        <!--<Label Text="*" TextColor="Red"></Label>-->
+                    </StackLayout>
+                    <Entry Grid.Row="1" Grid.Column="1" Text="{Binding CustodyInfo.CustomerName}" IsEnabled="False"></Entry>
+
+                    <StackLayout Grid.Row="2" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="郵便番号"></Label>
+                        <!--<Label Text="*" TextColor="Red"></Label>-->
+                    </StackLayout>
+                    <Entry Grid.Row="2" Grid.Column="1" Text="{Binding CustodyInfo.PostCode}" IsEnabled="False"></Entry>
+
+                    <StackLayout Grid.Row="3" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="住所"></Label>
+                        <!--<Label Text="*" TextColor="Red"></Label>-->
+                    </StackLayout>
+                    <Entry Grid.Row="3" Grid.Column="1" Text="{Binding CustodyInfo.Address}" IsEnabled="False"></Entry>
+
+                    <StackLayout Grid.Row="4" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="電話番号"></Label>
+                        <!--<Label Text="*" TextColor="Red"></Label>-->
+                    </StackLayout>
+                    <Entry Grid.Row="4" Grid.Column="1" Text="{Binding CustodyInfo.TelephoneNumber}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="5" Text="内容" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="5" Grid.Column="1" Text="{Binding CustodyInfo.Contents}" IsEnabled="False"></Entry>
+
+                    <StackLayout Grid.Row="6" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="預り予定日"></Label>
+                        <!--<Label Text="*" TextColor="Red"></Label>-->
+                    </StackLayout>
+                    <Label Grid.Row="6" Text="預り予定日" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="6" Grid.Column="1" Text="{Binding CustodyInfo.CustodyDate}" IsEnabled="False"></Entry>
+
+                    <StackLayout Grid.Row="7" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="預りRFID"></Label>
+                        <Label Text="*" TextColor="Red"></Label>
+                    </StackLayout>
+                    <Grid Grid.Row="7" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*"></ColumnDefinition>
+                            <ColumnDefinition Width="60"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Entry x:Name="txtRfid" Text="{Binding CustodyInfo.Rfid}" TextChanged="txtRfid_TextChanged" Completed="txtRfid_Completed"></Entry>
+                        <ImageButton  Grid.Column="1" Source="Assets/rfid.png" CornerRadius="10" BorderWidth="2" BackgroundColor="#9FBFBE"
+                                HeightRequest="40" WidthRequest="50" VerticalOptions="Center" HorizontalOptions="End"
+                                Clicked="ImageButton_Clicked" >
+                        </ImageButton>
+                    </Grid>
+
+                    <StackLayout Grid.Row="8" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="End">
+                        <Button Grid.Column="1" Text="OK" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding OkCommand}">
+                        </Button>
+                        <Button Grid.Column="1" Text="キャンセル" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding CloseCommand}">
+                        </Button>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

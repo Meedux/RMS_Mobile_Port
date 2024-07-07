@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xctViews:Popup xmlns="http://xamarin.com/schemas/2014/forms"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+           xmlns:local="clr-namespace:ReceivingManagementSystem.Popup"
+           xmlns:xctViews="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+           Size="500, 550"
+           x:Class="ReceivingManagementSystem.Orders.OrderReceiptPopup"
+           x:TypeArguments="x:String" Opacity="1" Color="#E9E9E9" IsLightDismissEnabled="False" >
+
+    <xctViews:Popup.Resources>
+        <ResourceDictionary>
+            <Style x:Key="Title" TargetType="Label">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#000" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="Divider" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="1" />
+                <Setter Property="Margin" Value="50, 25" />
+                <Setter Property="Color" Value="White" />
+            </Style>
+            <Style x:Key="Content" TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="PopupLayout" TargetType="StackLayout">
+                <Setter Property="Padding" Value="{OnPlatform Android=20, UWP=20, iOS=5}" />
+            </Style>
+            <Style x:Key="ConfirmButton" TargetType="Button">
+                <Setter Property="VerticalOptions" Value="EndAndExpand" />
+                <Setter Property="BackgroundColor" Value="#9FBFBE"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </xctViews:Popup.Resources>
+
+    <Grid Margin="0,20,0,0" Padding="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Style="{StaticResource Title}" 
+                Text="預り業務-受注登録確認" />
+        <Grid Margin="0,20,0,0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"></RowDefinition>
+                <RowDefinition Height="35"></RowDefinition>
+                <RowDefinition Height="35"></RowDefinition>
+                <RowDefinition Height="35"></RowDefinition>
+                <RowDefinition Height="35"></RowDefinition>
+                <RowDefinition Height="35"></RowDefinition>
+                <RowDefinition Height="35"></RowDefinition>
+                <RowDefinition Height="35"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Text="会社名" VerticalOptions="Center"></Label>
+            <Label Grid.Row="0" Grid.Column="1" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding CompanyName}"></Label>
+
+            <Label Grid.Row="1" Text="氏名" VerticalOptions="Center"></Label>
+            <Label Grid.Row="1" Grid.Column="1" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding CustomerName}"></Label>
+
+            <Label Grid.Row="2" Text="郵便番号" VerticalOptions="Center"></Label>
+            <Label Grid.Row="2" Grid.Column="1" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding PostCode}"></Label>
+
+            <Label Grid.Row="3" Text="住所" VerticalOptions="Center"></Label>
+            <Label Grid.Row="3" Grid.Column="1" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding Address}"></Label>
+
+            <Label Grid.Row="4" Text="電話番号" VerticalOptions="Center"></Label>
+            <Label Grid.Row="4" Grid.Column="1" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding TelephoneNumber}"></Label>
+
+            <Label Grid.Row="5" Text="内容" VerticalOptions="Center"></Label>
+            <Label Grid.Row="5" Grid.Column="1" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding Contents}"></Label>
+
+            <Label Grid.Row="6" Text="預り予定日" VerticalOptions="Center"></Label>
+            <Label Grid.Row="6" Grid.Column="1" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding CustodyDate}"></Label>
+
+            <Label Grid.Row="7" Text="RFID" VerticalOptions="Center" IsVisible="{Binding IsVisibleRfid}"></Label>
+            <Label Grid.Row="7" Grid.Column="1" VerticalOptions="Center" FontAttributes="Bold" Text="{Binding Rfid}" IsVisible="{Binding IsVisibleRfid}"></Label>
+
+        </Grid>
+        <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="End" Margin="0,10,0,0">
+            <Button Text="複数登録" x:Name="btnMultiRegistraton"
+                Style="{StaticResource ConfirmButton}" FontSize="22" HeightRequest="50" WidthRequest="150"
+                Clicked="btnMultiRegistraton_Clicked" />
+            <Button Text="登録" x:Name="btnRegister"
+                Style="{StaticResource ConfirmButton}" FontSize="22" HeightRequest="50" WidthRequest="150"
+                Clicked="btnRegister_Clicked" />
+        </StackLayout>
+    </Grid>
+
+</xctViews:Popup>

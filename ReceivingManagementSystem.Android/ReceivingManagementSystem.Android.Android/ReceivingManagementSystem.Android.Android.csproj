@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{664952AE-74E2-4808-A0B0-FCD83C61D3F3}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{c9e5eea5-ca05-42a1-839b-61506e0a37df}</TemplateGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ReceivingManagementSystem.Android.Droid</RootNamespace>
+    <AssemblyName>ReceivingManagementSystem.Android.Android</AssemblyName>
+    <Deterministic>True</Deterministic>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
+    <TargetFrameworkVersion>v13.0</TargetFrameworkVersion>
+    <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
+    <AndroidUseAapt2>true</AndroidUseAapt2>
+    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
+    <AndroidSupportedAbis>armeabi-v7a;x86;x86_64;arm64-v8a</AndroidSupportedAbis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidManagedSymbols>true</AndroidManagedSymbols>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
+    <AndroidLinkTool>r8</AndroidLinkTool>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DENSOScannerSDK">
+      <HintPath>..\..\Lib\DENSOScannerSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="DENSOScannerSDKAndroid">
+      <HintPath>..\..\Lib\DENSOScannerSDKAndroid.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android" />
+    <Reference Include="Mono.Android.Export" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+    <Reference Include="TecRfidSuite">
+      <HintPath>..\..\Lib\TecRfidSuite.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BeepAudioTracks.cs" />
+    <Compile Include="CommManagerWrapper.cs" />
+    <Compile Include="CommonEventWrapper.cs" />
+    <Compile Include="CommonUtilWrapper.cs" />
+    <Compile Include="FileWrapper.cs" />
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveSettingsWrapper.cs" />
+    <Compile Include="Toshibamanager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon_round.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\drawable\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\RMS_Pleasanter\PleasanterOperation\PleasanterOperation.csproj">
+      <Project>{425c9b68-32b9-4b09-9f20-6a7796bc9a64}</Project>
+      <Name>PleasanterOperation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\RMS_Pleasanter\RMS_Pleasanter\RMS_Pleasanter.csproj">
+      <Project>{3f9d69b2-ed16-484e-9f33-781349c26d45}</Project>
+      <Name>RMS_Pleasanter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ReceivingManagementSystem.Common\ReceivingManagementSystem.Common.csproj">
+      <Project>{903201a1-c20e-4e4c-b763-2e24688d84a7}</Project>
+      <Name>ReceivingManagementSystem.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReceivingManagementSystem.Android\ReceivingManagementSystem.Android.csproj">
+      <Project>{B675BF29-0EC1-48B9-B33B-BD816B9D269B}</Project>
+      <Name>ReceivingManagementSystem.Android</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\about.png" />
+    <AndroidAsset Include="Assets\BadgeLogo.scale-100.png" />
+    <AndroidAsset Include="Assets\BadgeLogo.scale-125.png" />
+    <AndroidAsset Include="Assets\BadgeLogo.scale-150.png" />
+    <AndroidAsset Include="Assets\BadgeLogo.scale-200.png" />
+    <AndroidAsset Include="Assets\BadgeLogo.scale-400.png" />
+    <AndroidAsset Include="Assets\calendar.png" />
+    <AndroidAsset Include="Assets\import-csv.png" />
+    <AndroidAsset Include="Assets\import.png" />
+    <AndroidAsset Include="Assets\LargeTile.scale-100.png" />
+    <AndroidAsset Include="Assets\LargeTile.scale-125.png" />
+    <AndroidAsset Include="Assets\LargeTile.scale-150.png" />
+    <AndroidAsset Include="Assets\LargeTile.scale-200.png" />
+    <AndroidAsset Include="Assets\LargeTile.scale-400.png" />
+    <AndroidAsset Include="Assets\rfid.png" />
+    <AndroidAsset Include="Assets\settings.png" />
+    <AndroidAsset Include="Assets\SmallTile.scale-100.png" />
+    <AndroidAsset Include="Assets\SmallTile.scale-125.png" />
+    <AndroidAsset Include="Assets\SmallTile.scale-150.png" />
+    <AndroidAsset Include="Assets\SmallTile.scale-200.png" />
+    <AndroidAsset Include="Assets\SmallTile.scale-400.png" />
+    <AndroidAsset Include="Assets\sort-down.png" />
+    <AndroidAsset Include="Assets\sort-up.png" />
+    <AndroidAsset Include="Assets\SplashScreen.scale-100.png" />
+    <AndroidAsset Include="Assets\SplashScreen.scale-125.png" />
+    <AndroidAsset Include="Assets\SplashScreen.scale-150.png" />
+    <AndroidAsset Include="Assets\SplashScreen.scale-200.png" />
+    <AndroidAsset Include="Assets\SplashScreen.scale-400.png" />
+    <AndroidAsset Include="Assets\Square150x150Logo.scale-100.png" />
+    <AndroidAsset Include="Assets\Square150x150Logo.scale-125.png" />
+    <AndroidAsset Include="Assets\Square150x150Logo.scale-150.png" />
+    <AndroidAsset Include="Assets\Square150x150Logo.scale-200.png" />
+    <AndroidAsset Include="Assets\Square150x150Logo.scale-400.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.altform-unplated_targetsize-24.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.scale-100.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.scale-125.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.scale-150.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.scale-200.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.scale-400.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.targetsize-16.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.targetsize-16_altform-lightunplated.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.targetsize-24.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.targetsize-24_altform-lightunplated.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.targetsize-256.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.targetsize-256_altform-lightunplated.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.targetsize-32.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.targetsize-32_altform-lightunplated.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.targetsize-48.png" />
+    <AndroidAsset Include="Assets\Square44x44Logo.targetsize-48_altform-lightunplated.png" />
+    <AndroidAsset Include="Assets\StoreLogo.scale-100.png" />
+    <AndroidAsset Include="Assets\StoreLogo.scale-125.png" />
+    <AndroidAsset Include="Assets\StoreLogo.scale-150.png" />
+    <AndroidAsset Include="Assets\StoreLogo.scale-200.png" />
+    <AndroidAsset Include="Assets\StoreLogo.scale-400.png" />
+    <AndroidAsset Include="Assets\track1.wav" />
+    <AndroidAsset Include="Assets\track2.wav" />
+    <AndroidAsset Include="Assets\track3.wav" />
+    <AndroidAsset Include="Assets\track4.wav" />
+    <AndroidAsset Include="Assets\track5.wav" />
+    <AndroidAsset Include="Assets\Wide310x150Logo.scale-100.png" />
+    <AndroidAsset Include="Assets\Wide310x150Logo.scale-125.png" />
+    <AndroidAsset Include="Assets\Wide310x150Logo.scale-150.png" />
+    <AndroidAsset Include="Assets\Wide310x150Logo.scale-200.png" />
+    <AndroidAsset Include="Assets\Wide310x150Logo.scale-400.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+</Project>

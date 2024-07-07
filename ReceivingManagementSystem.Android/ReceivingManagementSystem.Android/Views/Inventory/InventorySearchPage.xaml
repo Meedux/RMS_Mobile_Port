@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceivingManagementSystem.Android.Inventory.InventorySearchPage"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:datePicker="clr-namespace:Syncfusion.XForms.Pickers;assembly=Syncfusion.SfPicker.XForms"
+             xmlns:syncmaskededit="clr-namespace:Syncfusion.XForms.MaskedEdit;assembly=Syncfusion.SfMaskedEdit.XForms"
+             Title="預り業務-棚卸">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <datePicker:SfDatePicker  Grid.ColumnSpan="3"
+													ShowFooter="True"
+													PickerWidth="300"
+													SelectedItemFontSize="20"
+													UnselectedItemFontSize="20"
+													ColumnHeaderHeight="40"
+													WidthRequest="100" HeightRequest="50"
+													Date="{Binding SearchParams.SelectDate, Mode=TwoWay}"
+													IsOpen="{Binding IsPickerOpen, Mode=TwoWay}"
+													PickerMode="Dialog"
+													OkCommand="{Binding OkSelectDateCommand}"/>
+            <StackLayout Grid.Column="1" Padding="0, 20,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Text="棚番号" VerticalOptions="Center"></Label>
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*"></ColumnDefinition>
+                            <ColumnDefinition Width="4*"></ColumnDefinition>
+                            <ColumnDefinition Width="60"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Picker Grid.Column="0" ItemsSource="{Binding ShelfNumbers}" ItemDisplayBinding="{Binding DisplayValue}" SelectedItem="{Binding ShelfNumberSelected}"/>
+                        <Entry Grid.Column="1" x:Name="txtRfid" Text="{Binding Rfid}" TextChanged="txtRfid_TextChanged" HorizontalOptions="Fill" WidthRequest="1"></Entry>
+                        <ImageButton  Grid.Column="2" Source="Assets/rfid.png" CornerRadius="10" BorderWidth="2" BackgroundColor="#9FBFBE"
+                                HeightRequest="40" WidthRequest="40" VerticalOptions="Center" HorizontalOptions="Center"
+                                Clicked="ImageButton_Clicked">
+                        </ImageButton>
+                    </Grid>
+
+                    <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="棚卸開始日"></Label>
+                    </StackLayout>
+                    <Grid Grid.Row="1" Grid.Column="1" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <syncmaskededit:SfMaskedEdit Mask="0000/00/00"  Value="{Binding InputDate}" HeightRequest="40" VerticalOptions="Center" ValueMaskFormat="IncludeLiterals"/>
+                        <ImageButton Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center"  WidthRequest="50"
+                             Source="Assets/calendar.png" Command="{Binding OpenPickerCommand}"></ImageButton>
+                        <Button Grid.Column="2" Text="本日" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150"
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding SetToDayCommand}">
+                        </Button>
+                    </Grid>
+
+                    <StackLayout Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="End">
+                        <Button Grid.Column="1" Text="開始" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150"
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding StartCommand}">
+                        </Button>
+                        <Button Grid.Column="1" Text="終了" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150"
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding CloseCommand}">
+                        </Button>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

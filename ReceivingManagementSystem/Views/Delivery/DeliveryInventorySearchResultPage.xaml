@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceivingManagementSystem.Delivery.DeliveryInventorySearchResultPage"
+              xmlns:sfgrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+              xmlns:local ="clr-namespace:ReceivingManagementSystem.Styles;assembly=ReceivingManagementSystem"
+             Title="預り業務-預り検索結果">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:RmsDataGridStyle x:Key="rmsStyle" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Margin="0, 20, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="1000"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="600"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <sfgrid:SfDataGrid Grid.Column="1" x:Name="dataGrid"
+                               AutoGenerateColumns="false"
+                               ItemsSource="{Binding Items}"
+                               SelectedItem="{Binding ItemSelected}"
+                           HeaderRowHeight="52"
+                           RowHeight="40"
+                           SelectionMode="Single"
+                           AllowEditing="True"
+                           NavigationMode="Cell"
+                           ColumnSizer="LastColumnFill"
+                           GridStyle="{StaticResource rmsStyle}"
+                                           ScrollingMode="Line"
+                           VerticalOverScrollMode="None" AllowSorting="True" 
+                               GridDoubleTapped="dataGrid_GridDoubleTapped"
+                               HorizontalScrollBarVisibility="False">
+
+                <sfgrid:SfDataGrid.Columns>
+                    <sfgrid:GridTextColumn HeaderText="会社名" HeaderCellTextSize="16" ValueBinding="{Binding CompanyName}" 
+                                           TextAlignment="Start"  Padding="5,0,5,0" LineBreakMode="TailTruncation" 
+                                           MappingName="CompanyName" Width="150"></sfgrid:GridTextColumn>
+                    <sfgrid:GridTextColumn HeaderText="氏名" HeaderCellTextSize="16" ValueBinding="{Binding CustomerName}" 
+                                           TextAlignment="Start"  Padding="5,0,5,0" LineBreakMode="TailTruncation" 
+                                           MappingName="CustomerName" Width="150"></sfgrid:GridTextColumn>
+                    <sfgrid:GridTextColumn HeaderText="郵便番号" HeaderCellTextSize="16" ValueBinding="{Binding PostCode}" 
+                                           TextAlignment="Center"  Padding="5,0,5,0" LineBreakMode="TailTruncation" 
+                                           MappingName="PostCode" Width="100"></sfgrid:GridTextColumn>
+                    <sfgrid:GridTextColumn HeaderText="住所" HeaderCellTextSize="16" ValueBinding="{Binding Address}" 
+                                           TextAlignment="Start"  Padding="5,0,5,0" LineBreakMode="TailTruncation" 
+                                           MappingName="Address" Width="200"></sfgrid:GridTextColumn>
+                    <sfgrid:GridTextColumn HeaderText="電話番号" HeaderCellTextSize="16" ValueBinding="{Binding TelephoneNumber}" 
+                                           TextAlignment="Center"  Padding="5,0,5,0" LineBreakMode="TailTruncation" 
+                                           MappingName="TelephoneNumber" Width="100"></sfgrid:GridTextColumn>
+                    <sfgrid:GridTextColumn HeaderText="メールアドレス" HeaderCellTextSize="16" ValueBinding="{Binding MailAddress}" 
+                                           TextAlignment="Center"  Padding="5,0,5,0" LineBreakMode="TailTruncation" 
+                                           MappingName="MailAddress" Width="150"></sfgrid:GridTextColumn>
+                    <sfgrid:GridTextColumn HeaderText="内容" HeaderCellTextSize="16" ValueBinding="{Binding Contents}" 
+                                           TextAlignment="Start"  Padding="5,0,5,0" LineBreakMode="TailTruncation" 
+                                           MappingName="Contents"></sfgrid:GridTextColumn>
+                </sfgrid:SfDataGrid.Columns>
+            </sfgrid:SfDataGrid>
+
+            <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End">
+                <Button x:Name="btnOK" Grid.Column="1" Text="OK" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding OkCommand}">
+                </Button>
+                <Button x:Name="btnCancel" Grid.Column="1" Text="キャンセル" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding CloseCommand}">
+                </Button>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

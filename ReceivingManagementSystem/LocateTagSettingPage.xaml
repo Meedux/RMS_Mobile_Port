@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceivingManagementSystem.LocateTagSettingPage">
+    <ContentPage.Content>
+        <Grid Margin="10">
+            <StackLayout>
+                <StackLayout>
+                    <Label x:Name="button_navigate_up" Text="＜ RETURN" TextColor="Blue" FontAttributes="Bold">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <StackLayout>
+                    <Label x:Name="text_title_locate_tag" Text="Range Settings" HorizontalOptions="Center" FontSize="36" FontAttributes="Bold"/>
+                    
+                </StackLayout>
+
+                <!-- LocateTagSettings 中身 contents -->
+                <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+                        <Grid VerticalOptions="Center" HorizontalOptions="Center">
+                            <Image x:Name="image_setting_radar" Source="{Binding ImageSource}"></Image>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                            <!-- -->
+                            <Grid Margin="0, 5, 0, 5" HorizontalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="4.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="4.5*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label Text="-" FontSize="20"></Label>
+                                </Grid>
+                                <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                    <Editor x:Name="stage5_max_read_power_level_on_search"></Editor>
+                                </Grid>
+                                <Grid Grid.Column="2" HorizontalOptions="Center"  VerticalOptions="Center">
+                                    <Label Text="0.1dBm"></Label>
+                                </Grid>
+                            </Grid>
+
+                            <!-- -->
+                            <Grid Margin="0, 5, 0, 5" HorizontalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="4.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="4.5*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label Text="-" FontSize="20"></Label>
+                                </Grid>
+                                <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                    <Editor x:Name="stage4_max_read_power_level_on_search"></Editor>
+                                </Grid>
+                                <Grid Grid.Column="2" HorizontalOptions="Center"  VerticalOptions="Center">
+                                    <Label Text="0.1dBm"></Label>
+                                </Grid>
+                            </Grid>
+
+                            <!-- -->
+                            <Grid Margin="0, 5, 0, 5" HorizontalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="4.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="4.5*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label Text="-" FontSize="20"></Label>
+                                </Grid>
+                                <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                    <Editor x:Name="stage3_max_read_power_level_on_search"></Editor>
+                                </Grid>
+                                <Grid Grid.Column="2" HorizontalOptions="Center"  VerticalOptions="Center">
+                                    <Label Text="0.1dBm"></Label>
+                                </Grid>
+                            </Grid>
+
+                            <!-- -->
+                            <Grid Margin="0, 5, 0, 5" HorizontalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="4.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="4.5*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label Text="-" FontSize="20"></Label>
+                                </Grid>
+                                <Grid Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                    <Editor x:Name="stage2_max_read_power_level_on_search"></Editor>
+                                </Grid>
+                                <Grid Grid.Column="2" HorizontalOptions="Center"  VerticalOptions="Center">
+                                    <Label Text="0.1dBm"></Label>
+                                </Grid>
+                            </Grid>
+
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+            </StackLayout>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

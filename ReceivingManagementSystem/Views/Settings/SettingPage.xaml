@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceivingManagementSystem.Views.Settings.SettingPage"
+             Title="設定">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="800"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="1" Padding="0, 20,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="RFIDデバイス：" VerticalOptions="Center"></Label>
+                        <Picker Grid.Column="1" ItemsSource="{Binding Devices}" ItemDisplayBinding="{Binding DisplayValue}" 
+                            SelectedItem="{Binding DeviceSelected}"/>
+                    </Grid>
+
+                    <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Center" Margin="0,20,0,20">
+                        <Button Grid.Column="1" Text="SP1設定" BackgroundColor="{Binding BackgroundColor}" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding SP1SettingCommand}" Margin="0,0,100,0"
+                                IsEnabled="{Binding IsCommScanner}">
+                        </Button>
+                        <Button Grid.Column="1" Text="RFID発見音" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding SoundSettingCommand}" Margin="0,0,100,0">
+                        </Button>
+                        <Button Grid.Column="1" Text="プリザンター設定" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="200" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding PleasanterSettingCommand}">
+                        </Button>
+                    </StackLayout>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="7*"></ColumnDefinition>
+                            <ColumnDefinition Width="60"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Text="RFID" VerticalOptions="Center"></Label>
+                        <Entry x:Name="txtRfid" Grid.Column="1"  Text="{Binding Rfid}" TextChanged="txtRfid_TextChanged"></Entry>
+                        <ImageButton  Grid.Column="2" Source="Assets/rfid.png" CornerRadius="10" BorderWidth="2" BackgroundColor="#9FBFBE"
+                                HeightRequest="50" WidthRequest="50" VerticalOptions="Center" HorizontalOptions="End"
+                                Clicked="ImageButton_Clicked">
+                        </ImageButton>
+                    </Grid>
+
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                            <ColumnDefinition Width="120"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Text="送信設定" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="Start" Command="{Binding SendSettingCommand}">
+                        </Button>
+
+                        <Button Grid.Column="1" Text="OK" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding OkCommand}">
+                        </Button>
+                        <Button Grid.Column="2" Text="キャンセル" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding CloseCommand}">
+                        </Button>
+                    </Grid>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

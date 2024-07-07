@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceivingManagementSystem.Android.Inventory.InventoryUpdateNormalPage"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="1" Padding="0, 20,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="300"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="RFID" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Item.Rfid}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="棚番号" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Item.ShelfNumber}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="内容" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Item.Contents}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="3" Grid.Column="0" Text="会社名" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Item.CompanyName}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="4" Grid.Column="0" Text="氏名" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Item.CustomerName}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="5" Grid.Column="0" Text="状態" VerticalOptions="Center"></Label>
+                    <Grid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="60"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Entry Grid.Column="0" Text="{Binding Item.Status}" IsEnabled="False"></Entry>
+                        <Label Grid.Column="1" Text="⇒" VerticalOptions="Center" VerticalTextAlignment="Center" FontSize="18" HorizontalTextAlignment="Center"></Label>
+                        <Picker Grid.Column="2" ItemsSource="{Binding StatusList}" ItemDisplayBinding="{Binding DisplayValue}" SelectedItem="{Binding StatusSelected}"/>
+                    </Grid>
+
+                    <StackLayout Grid.Row="6" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalOptions="End">
+                        <Button Grid.Column="1" Text="更新" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding RenewCommand}">
+                        </Button>
+                        <Button Grid.Column="1" Text="キャンセル" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding CloseCommand}">
+                        </Button>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

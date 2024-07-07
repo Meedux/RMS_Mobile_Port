@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceivingManagementSystem.Inventory.ItemSearchInventoryPage"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             Title="商品業務-検索">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="800"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="1" Padding="0, 20,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="100"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="300"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Text="RFID" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Item.Rfid}" IsEnabled="False"></Entry>
+
+                    <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <ImageButton Grid.Column="0" Source="Assets/rfid.png" CornerRadius="10" BorderWidth="2" BackgroundColor="#9FBFBE"
+                                HeightRequest="50" WidthRequest="50" VerticalOptions="Center" HorizontalOptions="Start"
+                                Clicked="ImageButton_Clicked">
+                        </ImageButton>
+                        <Label Grid.Column="1" Text="スキャン中" VerticalOptions="Center" IsVisible="{Binding IsVisibleSearch}"></Label>
+                        <Label Grid.Column="2" Text="{Binding RadioStrength}" VerticalOptions="Center" FontSize="40" FontAttributes="Bold" IsVisible="{Binding IsRfidSearch}"></Label>
+                    </Grid>
+                    <Entry Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="txtRfid" Text="{Binding SearchRfid}" HorizontalOptions="Fill" VerticalOptions="Center" IsVisible="{Binding IsVisibleTxtRfid}"/>
+
+                    <Image x:Name="image_search_radar" Grid.Row="1" Grid.Column="2" Source="{Binding BackgroundImageSource}" IsVisible="{Binding IsRfidSearch}"></Image>
+                    <Image x:Name="image_search_circle" Grid.Row="1"  Grid.Column="2" Source="{Binding PowerImageSource}" IsVisible="{Binding PowerImageVisible}"></Image>
+
+                    
+                    <Label Grid.Row="2" Text="商品種別" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Item.ItemType}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="3" Text="商品名" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Item.ItemName}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="4" Text="品番" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Item.ItemNumber}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="5" Text="規格" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Item.Standard}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="6" Text="寸法" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Item.Dimensions}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="7" Text="パレット種類" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Item.PalletKind}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="8" Text="在庫数" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Item.Inventory}" IsEnabled="False"></Entry>
+
+                    <StackLayout Grid.Row="9" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalOptions="End">
+                        <Button Grid.Column="1" Text="OK" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding OkCommand}">
+                        </Button>
+                        <Button Grid.Column="1" Text="キャンセル" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding CloseCommand}">
+                        </Button>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

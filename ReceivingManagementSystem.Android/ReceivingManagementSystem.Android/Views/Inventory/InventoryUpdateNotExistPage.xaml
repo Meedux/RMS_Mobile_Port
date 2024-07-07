@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceivingManagementSystem.Android.Inventory.InventoryUpdateNotExistPage"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             Title="預り業務-棚卸検索">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="1" Padding="0, 20,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="80"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="300"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Text="RFID" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Item.Rfid}" IsEnabled="False"></Entry>
+
+                    <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <ImageButton Grid.Column="0" Source="Assets/rfid.png" CornerRadius="10" BorderWidth="2" BackgroundColor="#9FBFBE"
+                                HeightRequest="50" WidthRequest="50" VerticalOptions="Center" HorizontalOptions="Start"
+                                Clicked="ImageButton_Clicked">
+                        </ImageButton>
+                        <Label Grid.Column="1" Text="スキャン中" VerticalOptions="Center" IsVisible="{Binding IsVisibleSearch}"></Label>
+                        <Label Grid.Column="2" Text="{Binding RadioStrength}" VerticalOptions="Center" FontSize="40" FontAttributes="Bold" IsVisible="{Binding IsRfidSearch}"></Label>
+                    </Grid>
+                    <Entry Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="txtRfid" Text="{Binding Rfid}" HorizontalOptions="Fill" VerticalOptions="Center" IsVisible="{Binding IsVisibleTxtRfid}"/>
+
+                    <Image x:Name="image_search_radar" Grid.Row="1" Grid.RowSpan="3" Grid.Column="2" Source="{Binding BackgroundImageSource}" IsVisible="{Binding IsRfidSearch}"></Image>
+                    <Image x:Name="image_search_circle" Grid.Row="1" Grid.RowSpan="3"  Grid.Column="2" Source="{Binding PowerImageSource}" IsVisible="{Binding PowerImageVisible}"></Image>
+
+                    <Label Grid.Row="2" Text="棚番号" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="{Binding LengthWithoutSearch}" Text="{Binding Item.ShelfNumber}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="3" Text="内容" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="{Binding LengthWithoutSearch}" Text="{Binding Item.Contents}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="4" Text="会社名" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Item.CompanyName}" IsEnabled="False"></Entry>
+
+                    <StackLayout Grid.Row="5" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="氏名"></Label>
+                    </StackLayout>
+                    <Entry Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Item.CustomerName}" IsEnabled="False"></Entry>
+
+                    <StackLayout Grid.Row="6" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="新棚番号"></Label>
+                    </StackLayout>
+                    <Grid Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*"></ColumnDefinition>
+                            <ColumnDefinition Width="4*"></ColumnDefinition>
+                            <ColumnDefinition Width="60"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <combobox:SfComboBox Grid.Column="0" 
+                                     Text=""
+                                     HeightRequest="40"
+                                     VerticalOptions="Center"
+                                     BorderColor="Black"
+                                     SelectedItem="{Binding ShelfNumberSelected}"
+                                     DisplayMemberPath="DisplayValue"
+                                     IsEditableMode="True"
+                                     SelectAllOnFocus="True"
+                                     AllowFiltering="False"
+                                     TextHighlightMode="MultipleOccurrence"
+                                     HighlightedTextColor="Red"
+                                     SuggestionMode="Contains"
+                                     DataSource="{Binding ShelfNumbers}"
+                                     SuggestionBoxPlacement="Auto"
+                                     TextSize="14">
+                        </combobox:SfComboBox>
+                        <Entry Grid.Column="1" x:Name="txtRfidShelfNumber" Text="{Binding Rfid}" TextChanged="txtRfidShelfNumber_TextChanged" HorizontalOptions="Fill" WidthRequest="1" Completed="txtRfidShelfNumber_Completed"></Entry>
+                        <ImageButton Grid.Column="2" x:Name="btnRfidShelfNumber" Source="Assets/rfid.png" CornerRadius="10" BorderWidth="2" BackgroundColor="#9FBFBE"
+                                HeightRequest="40" WidthRequest="40" VerticalOptions="Center" HorizontalOptions="Center"
+                                Clicked="btnRfidShelfNumber_Clicked">
+                        </ImageButton>
+                    </Grid>
+
+                    <StackLayout Grid.Row="7" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalOptions="End">
+                        <Button Grid.Column="1" Text="更新" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding UpdateCommand}">
+                        </Button>
+                        <Button Grid.Column="1" Text="キャンセル" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding CloseCommand}">
+                        </Button>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

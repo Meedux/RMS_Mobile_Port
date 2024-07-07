@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceivingManagementSystem.Inventory.ItemSearchResultPage"
+               xmlns:simpleImageButton="clr-namespace:SimpleImageButton.SimpleImageButton;assembly=SimpleImageButton"    
+                  xmlns:syncButton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"  
+             xmlns:sfgrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+              xmlns:local ="clr-namespace:ReceivingManagementSystem.Styles;assembly=ReceivingManagementSystem"
+             Title="預り業務-検索一覧">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:RmsDataGridStyle x:Key="rmsStyle" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Margin="0, 20, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="1000"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="80"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <sfgrid:SfDataGrid x:Name="dataGrid"
+                           AutoGenerateColumns="false"
+                           ItemsSource="{Binding Items}"
+                           HeaderRowHeight="52"
+                           RowHeight="40"
+                           SelectionMode="Single"
+                           AllowEditing="True"
+                           NavigationMode="Cell"
+                           ColumnSizer="None"
+                           GridStyle="{StaticResource rmsStyle}"
+                           ScrollingMode="Line"
+                                           HorizontalScrollBarVisibility="True"
+                           VerticalOverScrollMode="None" AllowSorting="True" 
+                                           AllowDiagonalScrolling="False"
+                           GridDoubleTappedCommand="{Binding DoubleClickCommand}"
+                           SelectedItem="{Binding ItemSelected}">
+
+                    <sfgrid:SfDataGrid.Columns>
+                        <sfgrid:GridTemplateColumn HeaderCellTextSize="16"
+                                           HeaderFontAttribute="Bold" HeaderText="最終棚卸日"
+                                           LineBreakMode="NoWrap" MappingName="InventoryDateView" Width="100"
+                                                           TextAlignment="Center">
+                            <sfgrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Grid.Row="0" Grid.Column="0" LineBreakMode="WordWrap"   Padding="5,0,5,0"
+                                                   Text="{Binding InventoryDateView}"  VerticalTextAlignment="Center">
+                                    </Label>
+                                </DataTemplate>
+                            </sfgrid:GridTemplateColumn.CellTemplate>
+                        </sfgrid:GridTemplateColumn>
+                        <sfgrid:GridTemplateColumn HeaderCellTextSize="16"
+                                           HeaderFontAttribute="Bold" HeaderText="商品種別" 
+                                           LineBreakMode="NoWrap" MappingName="Status" Width="100"
+                                                           TextAlignment="Center">
+                            <sfgrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Grid.Row="0" Grid.Column="0" LineBreakMode="WordWrap"   Padding="5,0,5,0"
+                                                   Text="{Binding ItemType}" VerticalTextAlignment="Center">
+                                    </Label>
+                                </DataTemplate>
+                            </sfgrid:GridTemplateColumn.CellTemplate>
+                        </sfgrid:GridTemplateColumn>
+                        <sfgrid:GridTemplateColumn HeaderCellTextSize="16"
+                                           HeaderFontAttribute="Bold" HeaderText="商品名/規格" 
+                                           LineBreakMode="NoWrap" MappingName="Status" Width="400"
+                                                           TextAlignment="Center">
+                            <sfgrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Grid.Row="0" Grid.Column="0" LineBreakMode="WordWrap"   Padding="5,0,5,0"
+                                                   Text="{Binding ItemNameStandard}" VerticalTextAlignment="Center">
+                                    </Label>
+                                </DataTemplate>
+                            </sfgrid:GridTemplateColumn.CellTemplate>
+                        </sfgrid:GridTemplateColumn>
+                        <sfgrid:GridTemplateColumn HeaderCellTextSize="16"
+                                           HeaderFontAttribute="Bold" HeaderText="品番" 
+                                           LineBreakMode="NoWrap" MappingName="ItemNumber" Width="100"
+                                                           TextAlignment="Center">
+                            <sfgrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Grid.Row="0" Grid.Column="0" LineBreakMode="WordWrap"   Padding="5,0,5,0"
+                                                   Text="{Binding ItemNumber}" VerticalTextAlignment="Center">
+                                    </Label>
+                                </DataTemplate>
+                            </sfgrid:GridTemplateColumn.CellTemplate>
+                        </sfgrid:GridTemplateColumn>
+                        <sfgrid:GridTemplateColumn HeaderCellTextSize="16"
+                                           HeaderFontAttribute="Bold" HeaderText="RFID" 
+                                           LineBreakMode="TailTruncation" MappingName="Rfid" Width="200"
+                                                           TextAlignment="Center">
+                            <sfgrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Grid.Row="0" Grid.Column="0" LineBreakMode="WordWrap"    Padding="5,0,5,0"
+                                                   Text="{Binding Rfid}" VerticalTextAlignment="Center">
+                                    </Label>
+                                </DataTemplate>
+                            </sfgrid:GridTemplateColumn.CellTemplate>
+                        </sfgrid:GridTemplateColumn>
+                        <sfgrid:GridTemplateColumn HeaderCellTextSize="16"
+                                           HeaderFontAttribute="Bold" HeaderText="在庫数" 
+                                           LineBreakMode="NoWrap" MappingName="ShelfNumber" Width="100"
+                                                           TextAlignment="Center">
+                            <sfgrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Grid.Row="0" Grid.Column="0" LineBreakMode="WordWrap"    Padding="5,0,5,0"
+                                                   Text="{Binding Inventory}" VerticalTextAlignment="Center">
+                                    </Label>
+                                </DataTemplate>
+                            </sfgrid:GridTemplateColumn.CellTemplate>
+                        </sfgrid:GridTemplateColumn>
+
+                    </sfgrid:SfDataGrid.Columns>
+                </sfgrid:SfDataGrid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button  Grid.Column="0" Text="棚卸結果出力" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="Start" Command="{Binding ExportCsvCommand}">
+                    </Button>
+
+                    <StackLayout  Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End">
+                        <Button x:Name="btnUpdate" Text="OK" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                         FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                         VerticalOptions="Center" HorizontalOptions="End" Command="{Binding OkCommand}">
+                        </Button>
+
+                        <Button x:Name="btnCancel"  Grid.Column="1" Text="終了" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                        FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                        VerticalOptions="Center" Command="{Binding CloseCommand}">
+                        </Button>
+
+                    </StackLayout>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xctViews:Popup xmlns="http://xamarin.com/schemas/2014/forms"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+           xmlns:local="clr-namespace:ReceivingManagementSystem.Popup"
+           xmlns:xctViews="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+              xmlns:sfgrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+              xmlns:localStyle ="clr-namespace:ReceivingManagementSystem.Android.Styles;assembly=ReceivingManagementSystem.Android"
+           Size="1100, 500"
+           x:Class="ReceivingManagementSystem.Android.Orders.CustomerSearchResultPopup"
+           x:TypeArguments="x:object" Opacity="1" Color="#E9E9E9" IsLightDismissEnabled="False" >
+    <xct:Popup.Resources>
+        <ResourceDictionary>
+            <localStyle:RmsDataGridStyle x:Key="rmsStyle" />
+            <Style x:Key="Title" TargetType="Label">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#000" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="Divider" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="1" />
+                <Setter Property="Margin" Value="50, 25" />
+                <Setter Property="Color" Value="White" />
+            </Style>
+            <Style x:Key="Content" TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="PopupLayout" TargetType="StackLayout">
+                <Setter Property="Padding" Value="{OnPlatform Android=20, UWP=20, iOS=5}" />
+            </Style>
+            <Style x:Key="ConfirmButton" TargetType="Button">
+                <Setter Property="VerticalOptions" Value="EndAndExpand" />
+                <Setter Property="BackgroundColor" Value="#9FBFBE"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </xct:Popup.Resources>
+
+    <StackLayout Padding="15">
+        <Label Style="{StaticResource Title}" 
+                Text="預り業務-得意先検索結果" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="380"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+            </Grid.RowDefinitions>
+       
+            <sfgrid:SfDataGrid Grid.Column="1" x:Name="dataGrid"
+                               AutoGenerateColumns="false"
+                               ItemsSource="{Binding Clients}"
+                               SelectedItem="{Binding ClientSelected}"
+                           HeaderRowHeight="52"
+                           RowHeight="40"
+                           SelectionMode="Single"
+                           AllowEditing="True"
+                           NavigationMode="Cell"
+                           ColumnSizer="LastColumnFill"
+                           GridStyle="{StaticResource rmsStyle}"
+                                           ScrollingMode="Line"
+                           VerticalOverScrollMode="None" AllowSorting="True" 
+                               GridDoubleTapped="dataGrid_GridDoubleTapped"  HorizontalScrollBarVisibility="False">
+
+                <sfgrid:SfDataGrid.Columns>
+                    <sfgrid:GridTextColumn HeaderText="得意先コード" HeaderCellTextSize="16" ValueBinding="{Binding CustomerCode}" 
+                                           TextAlignment="Center"  Padding="5,0,5,0" LineBreakMode="TailTruncation" 
+                                           MappingName="CustomerCode" Width="120"></sfgrid:GridTextColumn>
+                    <sfgrid:GridTextColumn HeaderText="会社名" HeaderCellTextSize="16" ValueBinding="{Binding CompanyName}" 
+                                           TextAlignment="Start"  Padding="5,0,5,0" LineBreakMode="TailTruncation" 
+                                           MappingName="CompanyName" Width="150"></sfgrid:GridTextColumn>
+                    <sfgrid:GridTextColumn HeaderText="氏名" HeaderCellTextSize="16" ValueBinding="{Binding CustomerName}" 
+                                           TextAlignment="Start"  Padding="5,0,5,0" LineBreakMode="TailTruncation" 
+                                           MappingName="CustomerName" Width="150"></sfgrid:GridTextColumn>
+                    <sfgrid:GridTextColumn HeaderText="郵便番号" HeaderCellTextSize="16" ValueBinding="{Binding PostCode}" 
+                                           TextAlignment="Center"  Padding="5,0,5,0" LineBreakMode="TailTruncation" 
+                                           MappingName="PostCode" Width="100"></sfgrid:GridTextColumn>
+                    <sfgrid:GridTextColumn HeaderText="住所" HeaderCellTextSize="16" ValueBinding="{Binding Address}" 
+                                           TextAlignment="Start"  Padding="5,0,5,0" LineBreakMode="TailTruncation" 
+                                           MappingName="Address" Width="200"></sfgrid:GridTextColumn>
+                    <sfgrid:GridTextColumn HeaderText="電話番号" HeaderCellTextSize="16" ValueBinding="{Binding TelephoneNumber}" 
+                                           TextAlignment="Center"  Padding="5,0,5,0" LineBreakMode="TailTruncation" 
+                                           MappingName="TelephoneNumber" Width="100"></sfgrid:GridTextColumn>
+                    <sfgrid:GridTextColumn HeaderText="メールアドレス" HeaderCellTextSize="16" ValueBinding="{Binding MailAddress}" 
+                                           TextAlignment="Start"  Padding="5,0,5,0" LineBreakMode="TailTruncation" 
+                                           MappingName="MailAddress"></sfgrid:GridTextColumn>
+                </sfgrid:SfDataGrid.Columns>
+            </sfgrid:SfDataGrid>
+
+
+            <StackLayout Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="Center">
+                <Button x:Name="btnOK" Grid.Column="1" Text="OK" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Clicked="btnOK_Clicked">
+                </Button>
+                <Button x:Name="btnCancel"  Grid.Column="1" Text="キャンセル" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Clicked="btnCancel_Clicked">
+                </Button>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+</xctViews:Popup>

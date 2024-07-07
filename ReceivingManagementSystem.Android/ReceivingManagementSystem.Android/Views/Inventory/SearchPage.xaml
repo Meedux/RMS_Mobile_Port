@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceivingManagementSystem.Android.Inventory.SearchPage"
+             xmlns:datePicker="clr-namespace:Syncfusion.XForms.Pickers;assembly=Syncfusion.SfPicker.XForms"
+             xmlns:syncmaskededit="clr-namespace:Syncfusion.XForms.MaskedEdit;assembly=Syncfusion.SfMaskedEdit.XForms"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             Title="預り業務-検索">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <datePicker:SfDatePicker  Grid.ColumnSpan="3" 
+                                         ShowFooter="True" 
+                                         PickerWidth="300"
+                                         SelectedItemFontSize="20"
+                                         UnselectedItemFontSize="20"
+                                         ColumnHeaderHeight="40" 
+                                         WidthRequest="100" HeightRequest="50"
+                                         Date="{Binding SelectDate, Mode=TwoWay}"
+                                         IsOpen="{Binding IsPickerOpen, Mode=TwoWay}"
+                                         PickerMode="Dialog"
+                                         OkCommand="{Binding OkSelectDateCommand}"/>
+            <StackLayout Grid.Column="1" Padding="0, 20,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Text="会社名" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="0" Grid.Column="1" Text="{Binding SearchParams.CompanyName}" ></Entry>
+
+                    <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="氏名"></Label>
+                        <!--<Label Text="*" TextColor="Red"></Label>-->
+                    </StackLayout>
+                    <Entry Grid.Row="1" Grid.Column="1" Text="{Binding SearchParams.CustomerName}"></Entry>
+
+                    <StackLayout Grid.Row="2" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="郵便番号"></Label>
+                        <!--<Label Text="*" TextColor="Red"></Label>-->
+                    </StackLayout>
+                    <!--<Entry Grid.Row="2" Grid.Column="1" Text="{Binding SearchParams.PostCode}" ></Entry>-->
+                    <syncmaskededit:SfMaskedEdit Grid.Row="2" Grid.Column="1"  Value="{Binding SearchParams.PostCode}" Mask="000-0000" HeightRequest="40"
+                                                 ValueMaskFormat="ExcludePromptAndLiterals" VerticalOptions="Center"/>
+
+                    <StackLayout Grid.Row="3" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="住所"></Label>
+                        <!--<Label Text="*" TextColor="Red"></Label>-->
+                    </StackLayout>
+                    <Entry Grid.Row="3" Grid.Column="1" Text="{Binding SearchParams.Address}"></Entry>
+
+                    <StackLayout Grid.Row="4" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="電話番号"></Label>
+                        <!--<Label Text="*" TextColor="Red"></Label>-->
+                    </StackLayout>
+                    <Entry Grid.Row="4" Grid.Column="1" Text="{Binding SearchParams.TelephoneNumber}" ></Entry>
+
+                    <Label Grid.Row="5" Text="内容" VerticalOptions="Center"></Label>
+                    <combobox:SfComboBox Grid.Row="5" Grid.Column="1"
+                                     Text=""
+                                     HeightRequest="40"
+                                     VerticalOptions="Center"
+                                     BorderColor="Black"
+                                     SelectedItem="{Binding ContentSelected}"
+                                     DisplayMemberPath="DisplayValue"
+                                     IsEditableMode="True"
+                                     SelectAllOnFocus="True"
+                                     AllowFiltering="False"
+                                     TextHighlightMode="MultipleOccurrence"
+                                     HighlightedTextColor="Red"
+                                     SuggestionMode="Contains"
+                                     DataSource="{Binding ContentItems}"
+                                     SuggestionBoxPlacement="Auto"
+                                     TextSize="14">
+                    </combobox:SfComboBox>
+
+                    <Label Grid.Row="6" Text="状態" VerticalOptions="Center"></Label>
+                    <Picker Grid.Row="6" Grid.Column="1" ItemsSource="{Binding StatusList}" ItemDisplayBinding="{Binding DisplayValue}" SelectedItem="{Binding StatusSelected}"/>
+
+                    <Label Grid.Row="7" Text="預り日" VerticalOptions="Center"  ></Label>
+                    <StackLayout  Grid.Row="7" Grid.Column="1" Orientation="Horizontal">
+                        <Grid WidthRequest="200">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <syncmaskededit:SfMaskedEdit Mask="0000/00/00"  Value="{Binding SearchParams.CustodyDateFrom}" HeightRequest="40" VerticalOptions="Center" ValueMaskFormat="IncludeLiterals"/>
+                            <ImageButton Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center"  WidthRequest="50" 
+                             Source="Assets/calendar.png" Command="{Binding OpenPickerCommand}" CommandParameter="1"></ImageButton>
+                        </Grid>
+                        <Label Text="~" VerticalOptions="Center" WidthRequest="30" HorizontalOptions="Center" Margin="15,0,0,0"></Label>
+                        <Grid WidthRequest="200" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <syncmaskededit:SfMaskedEdit Mask="0000/00/00"  Value="{Binding SearchParams.CustodyDateTo}" HeightRequest="40" VerticalOptions="Center" ValueMaskFormat="IncludeLiterals"/>
+                            <ImageButton Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center"  WidthRequest="50" 
+                             Source="Assets/calendar.png" Command="{Binding OpenPickerCommand}" CommandParameter="2"></ImageButton>
+                        </Grid>
+                    </StackLayout>
+
+                    <Label Grid.Row="8" Text="返却日" VerticalOptions="Center"  ></Label>
+                    <StackLayout  Grid.Row="8" Grid.Column="1" Orientation="Horizontal">
+                        <Grid WidthRequest="200" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <syncmaskededit:SfMaskedEdit Mask="0000/00/00"  Value="{Binding SearchParams.ReturnDateFrom}" HeightRequest="40" VerticalOptions="Center" ValueMaskFormat="IncludeLiterals"/>
+                            <ImageButton Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center"  WidthRequest="50" 
+                             Source="Assets/calendar.png" Command="{Binding OpenPickerCommand}" CommandParameter="3"></ImageButton>
+                        </Grid>
+                        <Label Text="~" VerticalOptions="Center" WidthRequest="30" HorizontalOptions="Center" Margin="15,0,0,0"></Label>
+                        <Grid WidthRequest="200" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <syncmaskededit:SfMaskedEdit Mask="0000/00/00"  Value="{Binding SearchParams.ReturnDateTo}" HeightRequest="40" VerticalOptions="Center" ValueMaskFormat="IncludeLiterals"/>
+                            <ImageButton Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center"  WidthRequest="50" 
+                             Source="Assets/calendar.png" Command="{Binding OpenPickerCommand}" CommandParameter="4"></ImageButton>
+                        </Grid>
+                    </StackLayout>
+
+                    <Label Grid.Row="9" Text="棚卸日" VerticalOptions="Center"  ></Label>
+                    <StackLayout  Grid.Row="9" Grid.Column="1" Orientation="Horizontal">
+                        <Grid WidthRequest="200" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <syncmaskededit:SfMaskedEdit Mask="0000/00/00"  Value="{Binding SearchParams.InventoryDateFrom}" HeightRequest="40" VerticalOptions="Center" ValueMaskFormat="IncludeLiterals"/>
+                            <ImageButton Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center"  WidthRequest="50" 
+                             Source="Assets/calendar.png" Command="{Binding OpenPickerCommand}" CommandParameter="5"></ImageButton>
+                        </Grid>
+                        <Label Text="~" VerticalOptions="Center" WidthRequest="30" HorizontalOptions="Center" Margin="15,0,0,0"></Label>
+                        <Grid WidthRequest="200" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <syncmaskededit:SfMaskedEdit Mask="0000/00/00"  Value="{Binding SearchParams.InventoryDateTo}" HeightRequest="40" VerticalOptions="Center" ValueMaskFormat="IncludeLiterals"/>
+                            <ImageButton Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center"  WidthRequest="50" 
+                             Source="Assets/calendar.png" Command="{Binding OpenPickerCommand}" CommandParameter="6"></ImageButton>
+                        </Grid>
+                    </StackLayout>
+
+
+                    <StackLayout Grid.Row="10" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="End">
+                        <Button Grid.Column="1" Text="検索" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding SearchCommand}">
+                        </Button>
+                        <Button Grid.Column="1" Text="終了" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding CloseCommand}">
+                        </Button>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

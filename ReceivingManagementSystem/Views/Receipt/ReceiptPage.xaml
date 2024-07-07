@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceivingManagementSystem.Views.Receipt.ReceiptPage"   
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"  
+             Title="商品業務-入荷">
+    <ContentPage.Content>
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="800"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="1" Padding="0, 20,0,0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="110"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Row="0" Orientation="Horizontal" VerticalOptions="Center">
+                    <Label Text="品番/品名/種別"></Label>
+                    <Label Text="*" TextColor="Red"></Label>
+                </StackLayout>
+                <Picker Grid.Row="0" Grid.Column="1"  ItemsSource="{Binding ReceiptInfo.Items}" ItemDisplayBinding="{Binding DisplayValue}" 
+                            SelectedItem="{Binding ReceiptInfo.ItemSelected}"/>
+
+                <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="Center">
+                    <Label Text="パレット番号"></Label>
+                    <!--<Label Text="*" TextColor="Red"></Label>-->
+                </StackLayout>
+                <Picker Grid.Row="1" Grid.Column="1"  ItemsSource="{Binding ReceiptInfo.Pallets}" ItemDisplayBinding="{Binding DisplayValue}" 
+                            SelectedItem="{Binding ReceiptInfo.PalletSelected}"/>
+
+                <StackLayout Grid.Row="2" Orientation="Horizontal" VerticalOptions="Center">
+                    <Label Text="RFID"></Label>
+                    <Label Text="*" TextColor="Red"></Label>
+                </StackLayout>
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="7*"></ColumnDefinition>
+                        <ColumnDefinition Width="60"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Entry x:Name="txtRfid" Text="{Binding ReceiptInfo.Rfid}" Completed="txtRfid_Completed"></Entry>
+                    <ImageButton  Grid.Column="1" Source="Assets/rfid.png" CornerRadius="10" BorderWidth="2" BackgroundColor="#9FBFBE"
+                                HeightRequest="40" WidthRequest="50" VerticalOptions="Center" HorizontalOptions="End"
+                                Clicked="ImageButton_Clicked" >
+                    </ImageButton>
+                </Grid>
+
+                <StackLayout Grid.Row="3" Orientation="Horizontal" VerticalOptions="Center">
+                    <Label Text="入荷数"></Label>
+                    <Label Text="*" TextColor="Red"></Label>
+                </StackLayout>
+                <Entry Grid.Row="3" Grid.Column="1" x:Name="txtReceivedNumber" Text="{Binding ReceiptInfo.ReceivedNumber}"></Entry>
+
+                <Label Grid.Row="4" Text="便名" VerticalOptions="Center"></Label>
+                <Picker Grid.Row="4" Grid.Column="1"  ItemsSource="{Binding ReceiptInfo.Services}" SelectedItem="{Binding ReceiptInfo.ServiceSelected}" />
+
+                <Label Grid.Row="5" Text="発地" VerticalOptions="Center"></Label>
+                <Entry Grid.Row="5" Grid.Column="1" Text="{Binding ReceiptInfo.Origin}" ></Entry>
+
+                <Label Grid.Row="6" Text="着地" VerticalOptions="Center"></Label>
+                <Entry Grid.Row="6" Grid.Column="1" Text="{Binding ReceiptInfo.Destination}"></Entry>
+
+                <StackLayout Grid.Row="7" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="Start">
+                    <RadioButton Content="デバンニング(20ft)" IsChecked="{Binding ReceiptInfo.Devanning20}" />
+                    <RadioButton Content="デバンニング(40ft)" IsChecked="{Binding ReceiptInfo.Devanning40}" />
+                    <RadioButton Content="なし" IsChecked="{Binding ReceiptInfo.None}" />
+                </StackLayout>
+
+                <Label Grid.Row="8" Text="高速代金" VerticalOptions="Center"></Label>
+                <Entry Grid.Row="8" Grid.Column="1" Text="{Binding ReceiptInfo.HighwayCharges}"></Entry>
+
+                <Label Grid.Row="9" Text="配送料" VerticalOptions="Center"></Label>
+                <Entry Grid.Row="9" Grid.Column="1" Text="{Binding ReceiptInfo.ShippingCharges}"></Entry>
+
+                <StackLayout Grid.Row="10" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="End" >
+                    <Button Grid.Column="1" Text="入荷" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding OkCommand}">
+                    </Button>
+                    <Button Grid.Column="1" Text="キャンセル" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding CloseCommand}">
+                    </Button>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

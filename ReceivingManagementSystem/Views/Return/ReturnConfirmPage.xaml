@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ReceivingManagementSystem.Return.ReturnConfirmPage"
+             Title="預り業務-返却確認">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="800"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="1" Padding="0, 20,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Text="RFID" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="0" Grid.Column="1" Text="{Binding CustodyItem.Rfid}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="1" Text="受注日" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="1" Grid.Column="1" Text="{Binding CustodyItem.OrderDate}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="2" Text="返却予定日" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="2" Grid.Column="1" Text="{Binding CustodyItem.ReturnDate}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="3" Text="会社名" VerticalOptions="Center"></Label>
+                    <Entry  Grid.Row="3" Grid.Column="1" Text="{Binding CustodyItem.CompanyName}" IsEnabled="False"></Entry>
+
+                    <StackLayout Grid.Row="4" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="氏名"></Label>
+                        <!--<Label Text="*" TextColor="Red"></Label>-->
+                    </StackLayout>
+                    <Entry Grid.Row="4" Grid.Column="1" Text="{Binding CustodyItem.CustomerName}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="5" Text="郵便番号" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="5" Grid.Column="1" Text="{Binding CustodyItem.PostCode}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="6" Text="住所" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="6" Grid.Column="1" Text="{Binding CustodyItem.Address}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="7" Text="電話番号" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="7" Grid.Column="1" Text="{Binding CustodyItem.TelephoneNumber}" IsEnabled="False"></Entry>
+
+                    <Label Grid.Row="8" Text="内容" VerticalOptions="Center"></Label>
+                    <Entry Grid.Row="8" Grid.Column="1" Text="{Binding CustodyItem.Contents}" IsEnabled="False"></Entry>
+
+                    <Grid  Grid.Row="9" Grid.ColumnSpan="2" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End">
+                            <Button Text="返却" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding ReturnCommand}">
+                            </Button>
+                            <Button Text="キャンセル" BackgroundColor="#9FBFBE" CornerRadius="10" BorderWidth="2"
+                                FontAttributes="Bold" FontSize="22" HeightRequest="50" WidthRequest="150" 
+                                VerticalOptions="Center" HorizontalOptions="End" Command="{Binding CloseCommand}">
+                            </Button>
+                        </StackLayout>
+                    </Grid>
+                    
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

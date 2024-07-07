@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="app_version_format" xml:space="preserve">
+    <value>Ver{0}</value>
+  </data>
+  <data name="E_MSG_NO_CONNECTION" xml:space="preserve">
+    <value>It is not connected to SP1</value>
+  </data>
+  <data name="E_MSG_COMMUNICATION" xml:space="preserve">
+    <value>Failed to communicate data with SP1</value>
+  </data>
+  <data name="E_MSG_TAG" xml:space="preserve">
+    <value>タグ読取停止中にエラーが発生しました。</value>
+  </data>
+  <data name="start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="barcode" xml:space="preserve">
+    <value>Barcode</value>
+  </data>
+  <data name="barcode_uppercase" xml:space="preserve">
+    <value>BARCODE</value>
+  </data>
+  <data name="buzzer" xml:space="preserve">
+    <value>Buzzer</value>
+  </data>
+  <data name="buzzer_volume" xml:space="preserve">
+    <value>Buzzer volume</value>
+  </data>
+  <data name="buzzer_volume_loud" xml:space="preserve">
+    <value>Loud</value>
+  </data>
+  <data name="buzzer_volume_low" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="buzzer_volume_middle" xml:space="preserve">
+    <value>Middle</value>
+  </data>
+  <data name="channel" xml:space="preserve">
+    <value>Channel</value>
+  </data>
+  <data name="channel11" xml:space="preserve">
+    <value>ch11</value>
+  </data>
+  <data name="channel17" xml:space="preserve">
+    <value>ch17</value>
+  </data>
+  <data name="channel23" xml:space="preserve">
+    <value>ch23</value>
+  </data>
+  <data name="channel24" xml:space="preserve">
+    <value>ch24</value>
+  </data>
+  <data name="channel25" xml:space="preserve">
+    <value>ch25</value>
+  </data>
+  <data name="channel5" xml:space="preserve">
+    <value>ch5</value>
+  </data>
+  <data name="enable_all_1d_codes" xml:space="preserve">
+    <value>Enable all 1D codes</value>
+  </data>
+  <data name="enable_all_2d_codes" xml:space="preserve">
+    <value>Enable all 2D codes</value>
+  </data>
+  <data name="inventory" xml:space="preserve">
+    <value>Inventory</value>
+  </data>
+  <data name="link_profile" xml:space="preserve">
+    <value>Link Profile</value>
+  </data>
+  <data name="link_profile_1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="link_profile_4" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="link_profile_5" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="locate_tag" xml:space="preserve">
+    <value>LocateTag</value>
+  </data>
+  <data name="navigate_up" xml:space="preserve">
+    <value>&lt; TOP</value>
+  </data>
+  <data name="number_0_00" xml:space="preserve">
+    <value>0.00</value>
+  </data>
+  <data name="power_save" xml:space="preserve">
+    <value>Power save</value>
+  </data>
+  <data name="pre_filters" xml:space="preserve">
+    <value>PreFilters</value>
+  </data>
+  <data name="q_factor" xml:space="preserve">
+    <value>Q factor</value>
+  </data>
+  <data name="rapid_read" xml:space="preserve">
+    <value>RapidRead</value>
+  </data>
+  <data name="read_power_level" xml:space="preserve">
+    <value>Read Power Level</value>
+  </data>
+  <data name="read_power_level_unit" xml:space="preserve">
+    <value>dBm</value>
+  </data>
+  <data name="report_unique_tags" xml:space="preserve">
+    <value>Anti Re-read</value>
+  </data>
+  <data name="scanner_version" xml:space="preserve">
+    <value>Scanner version</value>
+  </data>
+  <data name="session" xml:space="preserve">
+    <value>Session</value>
+  </data>
+  <data name="session_s0" xml:space="preserve">
+    <value>S0</value>
+  </data>
+  <data name="session_s1" xml:space="preserve">
+    <value>S1</value>
+  </data>
+  <data name="session_s2" xml:space="preserve">
+    <value>S2</value>
+  </data>
+  <data name="session_s3" xml:space="preserve">
+    <value>S3</value>
+  </data>
+  <data name="settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="total_tags" xml:space="preserve">
+    <value>Total Tags</value>
+  </data>
+  <data name="trigger_mode" xml:space="preserve">
+    <value>Trigger mode</value>
+  </data>
+  <data name="trigger_mode_alternate" xml:space="preserve">
+    <value>Alternate</value>
+  </data>
+  <data name="trigger_mode_auto_off" xml:space="preserve">
+    <value>Auto off</value>
+  </data>
+  <data name="trigger_mode_continuous" xml:space="preserve">
+    <value>Continuous</value>
+  </data>
+  <data name="trigger_mode_momentary" xml:space="preserve">
+    <value>Momentary</value>
+  </data>
+  <data name="trigger_mode_trigger_release" xml:space="preserve">
+    <value>Trigger release</value>
+  </data>
+  <data name="E_MSG_SAVE_SETTINGS" xml:space="preserve">
+    <value>Setting failed</value>
+  </data>
+  <data name="I_MSG_SAVE_SETTINGS" xml:space="preserve">
+    <value>Your settings have been saved</value>
+  </data>
+  <data name="bank" xml:space="preserve">
+    <value>Bank</value>
+  </data>
+  <data name="bank_tid" xml:space="preserve">
+    <value>TID</value>
+  </data>
+  <data name="bank_uii" xml:space="preserve">
+    <value>UII</value>
+  </data>
+  <data name="bank_user" xml:space="preserve">
+    <value>USER</value>
+  </data>
+  <data name="clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="load" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="offset_bit" xml:space="preserve">
+    <value>Offset(bit)</value>
+  </data>
+  <data name="pattern" xml:space="preserve">
+    <value>Pattern</value>
+  </data>
+  <data name="set" xml:space="preserve">
+    <value>Set</value>
+  </data>
+  <data name="E_MSG_FILTER_OUT_OF_RANGE_OFFSET" xml:space="preserve">
+    <value>Offset can be entered from 0 to 524287</value>
+  </data>
+  <data name="E_MSG_FILTER_NOT_CAPITAL" xml:space="preserve">
+    <value>Please enter Pattern in capital</value>
+  </data>
+  <data name="E_MSG_FILTER_INVALID_PATTERN" xml:space="preserve">
+    <value>Please enter Pattern in hexadecimal</value>
+  </data>
+  <data name="E_MSG_FILTER_OUT_OF_RANGE_PATTERN" xml:space="preserve">
+    <value>Pattern can input up to 256 bits</value>
+  </data>
+  <data name="E_MSG_SET_FILTER" xml:space="preserve">
+    <value>Filter setting failed</value>
+  </data>
+  <data name="I_MSG_CLEAR_FILTER" xml:space="preserve">
+    <value>Filter setting cleared</value>
+  </data>
+  <data name="I_MSG_SET_FILTER" xml:space="preserve">
+    <value>Filter settings saved</value>
+  </data>
+  <data name="pcs" xml:space="preserve">
+    <value>pcs</value>
+  </data>
+  <data name="read_tag_head" xml:space="preserve">
+    <value>Read Tag:</value>
+  </data>
+  <data name="tags_per_second_unit" xml:space="preserve">
+    <value>pcs/s</value>
+  </data>
+  <data name="backward_match" xml:space="preserve">
+    <value>Bkward Match</value>
+  </data>
+  <data name="forward_match" xml:space="preserve">
+    <value>Forward Match</value>
+  </data>
+  <data name="number_0_0" xml:space="preserve">
+    <value>0.0</value>
+  </data>
+  <data name="read" xml:space="preserve">
+    <value>Read</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="text_search_tag_uii_head" xml:space="preserve">
+    <value>UII</value>
+  </data>
+  <data name="uii" xml:space="preserve">
+    <value>UII</value>
+  </data>
+  <data name="polarization" xml:space="preserve">
+    <value>Polarization</value>
+  </data>
+  <data name="polarization_both" xml:space="preserve">
+    <value>Both</value>
+  </data>
+  <data name="polarization_horizontal" xml:space="preserve">
+    <value>H</value>
+  </data>
+  <data name="polarization_vertical" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="I_MSG_PROGRESS_SETTING" xml:space="preserve">
+    <value>Please wait while settings are being applied</value>
+  </data>
+  <data name="connection_error" xml:space="preserve">
+    <value>Connection error to SP1</value>
+  </data>
+  <data name="waiting_for_connection" xml:space="preserve">
+    <value>Waiting for connection ....</value>
+  </data>
+  <data name="E_MSG_LOCATION_TAG_RANGE" xml:space="preserve">
+    <value>Invalid range value is input.</value>
+  </data>
+  <data name="I_MSG_LOCATION_TAG_SETTING" xml:space="preserve">
+    <value>Save range setting.</value>
+  </data>
+  <data name="E_MSG_LOCATION_TAG_SAVE_ERROR" xml:space="preserve">
+    <value>Failed to save range setting.</value>
+  </data>
+  <data name="range_setting" xml:space="preserve">
+    <value>Range</value>
+  </data>
+  <data name="range_setting_title" xml:space="preserve">
+    <value>Range Settings</value>
+  </data>
+  <data name="auto_link_profile" xml:space="preserve">
+    <value>Auto Link Profile</value>
+  </data>
+  <data name="connected" xml:space="preserve">
+    <value>Connected to SP1</value>
+  </data>
+</root>
